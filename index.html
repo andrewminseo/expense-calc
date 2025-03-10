@@ -1,162 +1,4 @@
-// Generate and download report
-        generateReportBtn.addEventListener('click', () => {
-            const format = exportFormatSelect.value;
-            generateReport(format);
-        });
-        
-        // Generate report in selected format
-        function generateReport(format) {
-            // Get current timestamp for filename
-            const timestamp = new Date().toISOString().replace(/:/g, '-').replace(/\..+/, '');
-            let filename = `expense-report-${timestamp}`;
-            let content = '';
-            let mimeType = '';
-            
-            // Calculate updated balances for the report
-            const balances = {};
-            people.forEach(person => {
-                balances[person.id] = 0;
-            });
-            
-            expenses.forEach(expense => {
-                balances[expense.payer] += expense.amount;
-                expense.shares.forEach(share => {
-                    balances[share.personId] -= share.amount;
-                });
-            });
-            
-            const transactions = calculateOptimalTransactions(balances);
-            
-            if (format === 'txt') {
-                // Text format
-                filename += '.txt';
-                mimeType = 'text/plain';
-                
-                content = 'EXPENSE REPORT\n';
-                content += '==============\n\n';
-                
-                // Add date
-                content += `Generated: ${new Date().toLocaleString()}\n\n`;
-                
-                // Add expense stats
-                content += 'EXPENSE SUMMARY\n';
-                content += '--------------\n';
-                content += `Total Expenses: ${expenses.reduce((sum, expense) => sum + expense.amount, 0).toFixed(2)}\n`;
-                content += `Number of Expenses: ${expenses.length}\n`;
-                content += `Average Expense: ${expenses.length > 0 ? (expenses.reduce((sum, expense) => sum + expense.amount, 0) / expenses.length).toFixed(2) : '0.00'}\n\n`;
-                
-                // Add people
-                content += 'PEOPLE\n';
-                content += '------\n';
-                people.forEach((person, index) => {
-                    content += `${index + 1}. ${person.name}\n`;
-                });
-                content += '\n';
-                
-                // Add expenses
-                content += 'EXPENSE DETAILS\n';
-                content += '--------------\n';
-                expenses.forEach((expense, index) => {
-                    const payer = people.find(p => p.id === expense.payer);
-                    content += `Expense ${index + 1}: ${expense.title}\n`;
-                    content += `Amount: ${expense.amount.toFixed(2)}\n`;
-                    content += `Paid by: ${payer ? payer.name : 'Unknown'}\n`;
-                    if (expense.description) {
-                        content += `Description: ${expense.description}\n`;
-                    }
-                    content += 'Shares:\n';
-                    expense.shares.forEach(share => {
-                        const person = people.find(p => p.id === share.personId);
-                        content += `  - ${person ? person.name : 'Unknown'}: ${share.amount.toFixed(2)}\n`;
-                    });
-                    content += '\n';
-                });
-                
-                // Add balances
-                content += 'SETTLEMENT SUMMARY\n';
-                content += '-----------------\n';
-                if (transactions.length === 0) {
-                    content += 'All settled up! No payments needed.\n';
-                } else {
-                    transactions.forEach(transaction => {
-                        const fromPerson = people.find(p => p.id === transaction.from);
-                        const toPerson = people.find(p => p.id === transaction.to);
-                        if (fromPerson && toPerson) {
-                            content += `${fromPerson.name} owes ${toPerson.name}: ${transaction.amount.toFixed(2)}\n`;
-                        }
-                    });
-                }
-                
-            } else if (format === 'csv') {
-                // CSV format
-                filename += '.csv';
-                mimeType = 'text/csv';
-                
-                // People section
-                content += 'PEOPLE\n';
-                content += 'ID,Name\n';
-                people.forEach(person => {
-                    content += `${person.id},${person.name}\n`;
-                });
-                content += '\n';
-                
-                // Expenses section
-                content += 'EXPENSES\n';
-                content += 'ID,Title,Description,Amount,Payer,Date\n';
-                expenses.forEach(expense => {
-                    const safeDescription = expense.description ? `"${expense.description.replace(/"/g, '""')}"` : '';
-                    content += `${expense.id},"${expense.title}",${safeDescription},${expense.amount},${expense.payer},${expense.date}\n`;
-                });
-                content += '\n';
-                
-                // Shares section
-                content += 'SHARES\n';
-                content += 'ExpenseID,PersonID,Amount\n';
-                expenses.forEach(expense => {
-                    expense.shares.forEach(share => {
-                        content += `${expense.id},${share.personId},${share.amount}\n`;
-                    });
-                });
-                content += '\n';
-                
-                // Settlement section
-                content += 'SETTLEMENT\n';
-                content += 'FromPerson,ToPerson,Amount\n';
-                transactions.forEach(transaction => {
-                    content += `${transaction.from},${transaction.to},${transaction.amount}\n`;
-                });
-                
-            } else if (format === 'json') {
-                // JSON format
-                filename += '.json';
-                mimeType = 'application/json';
-                
-                const reportData = {
-                    generated: new Date().toISOString(),
-                    stats: {
-                        totalExpenses: expenses.reduce((sum, expense) => sum + expense.amount, 0),
-                        expenseCount: expenses.length,
-                        averageExpense: expenses.length > 0 ? expenses.reduce((sum, expense) => sum + expense.amount, 0) / expenses.length : 0
-                    },
-                    people: people,
-                    expenses: expenses,
-                    settlement: transactions
-                };
-                
-                content = JSON.stringify(reportData, null, 2);
-            }
-            
-            // Create and trigger download
-            const blob = new Blob([content], { type: mimeType });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -557,6 +399,18 @@
             font-weight: bold;
         }
         
+        /* Export section */
+        .export-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .export-btn {
+            background-color: var(--button-color);
+            margin-bottom: 0;
+        }
+        
         @media (max-width: 768px) {
             .flex-container {
                 flex-direction: column;
@@ -678,21 +532,20 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="container">
-                <h3>Export Data</h3>
-                <p>Generate a report file with all expenses and balance calculations.</p>
-                <div class="flex-container">
-                    <div class="flex-item">
-                        <select id="export-format">
-                            <option value="txt">Text File (.txt)</option>
-                            <option value="csv">CSV File (.csv)</option>
-                            <option value="json">JSON File (.json)</option>
-                        </select>
-                    </div>
-                    <div class="flex-item">
-                        <button id="generate-report-btn">Generate Report</button>
+                
+                <div class="export-section">
+                    <h3>Export Data</h3>
+                    <p>Download a file with all expenses and balance calculations.</p>
+                    <div class="flex-container">
+                        <div class="flex-item">
+                            <button id="export-json-btn" class="export-btn">Export as JSON</button>
+                        </div>
+                        <div class="flex-item">
+                            <button id="export-csv-btn" class="export-btn">Export as CSV</button>
+                        </div>
+                        <div class="flex-item">
+                            <button id="export-text-btn" class="export-btn">Export as Text Report</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -719,8 +572,9 @@
         const expenseList = document.getElementById('expense-list');
         const balancesList = document.getElementById('balances-list');
         const totalExpensesSpan = document.getElementById('total-expenses');
-        const exportFormatSelect = document.getElementById('export-format');
-        const generateReportBtn = document.getElementById('generate-report-btn');
+        const exportJsonBtn = document.getElementById('export-json-btn');
+        const exportCsvBtn = document.getElementById('export-csv-btn');
+        const exportTextBtn = document.getElementById('export-text-btn');
         
         // Tab functionality
         const tabs = document.querySelectorAll('.tab');
@@ -1210,6 +1064,174 @@
                 localStorage.setItem('expense-calculator-theme', theme);
             });
         });
+        
+        // Export functionality
+        
+        // Export as JSON
+        exportJsonBtn.addEventListener('click', () => {
+            // Prepare data for export
+            const exportData = {
+                people: people,
+                expenses: expenses,
+                balances: calculateBalancesForExport()
+            };
+            
+            // Convert to JSON string
+            const jsonString = JSON.stringify(exportData, null, 2);
+            
+            // Create and download the file
+            downloadFile(jsonString, 'expense-calculator-data.json', 'application/json');
+        });
+        
+        // Export as CSV
+        exportCsvBtn.addEventListener('click', () => {
+            // Create CSV content
+            let csvContent = "data:text/csv;charset=utf-8,";
+            
+            // People section
+            csvContent += "PEOPLE\r\n";
+            csvContent += "ID,Name\r\n";
+            people.forEach(person => {
+                csvContent += `${person.id},${person.name}\r\n`;
+            });
+            
+            csvContent += "\r\nEXPENSES\r\n";
+            csvContent += "ID,Title,Description,Amount,Payer,Date\r\n";
+            expenses.forEach(expense => {
+                const payer = people.find(p => p.id === expense.payer)?.name || 'Unknown';
+                csvContent += `${expense.id},${expense.title},"${expense.description}",${expense.amount},${payer},${new Date(expense.date).toLocaleString()}\r\n`;
+            });
+            
+            csvContent += "\r\nSHARES\r\n";
+            csvContent += "Expense Title,Person,Amount\r\n";
+            expenses.forEach(expense => {
+                expense.shares.forEach(share => {
+                    const person = people.find(p => p.id === share.personId)?.name || 'Unknown';
+                    csvContent += `${expense.title},${person},${share.amount}\r\n`;
+                });
+            });
+            
+            csvContent += "\r\nBALANCES\r\n";
+            csvContent += "From,To,Amount\r\n";
+            const transactions = calculateOptimalTransactions(calculateBalancesForExport());
+            transactions.forEach(transaction => {
+                const fromPerson = people.find(p => p.id === transaction.from)?.name || 'Unknown';
+                const toPerson = people.find(p => p.id === transaction.to)?.name || 'Unknown';
+                csvContent += `${fromPerson},${toPerson},${transaction.amount}\r\n`;
+            });
+            
+            // Create and download the file
+            downloadFile(encodeURI(csvContent), 'expense-calculator-data.csv', 'text/csv');
+        });
+        
+        // Export as Text Report
+        exportTextBtn.addEventListener('click', () => {
+            // Create text content
+            let textContent = "EXPENSE CALCULATOR REPORT\r\n";
+            textContent += "=========================\r\n\r\n";
+            
+            const date = new Date();
+            textContent += `Generated on: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}\r\n\r\n`;
+            
+            // People section
+            textContent += "PEOPLE\r\n";
+            textContent += "------\r\n";
+            people.forEach(person => {
+                textContent += `${person.name}\r\n`;
+            });
+            
+            textContent += "\r\nEXPENSES\r\n";
+            textContent += "--------\r\n";
+            
+            const totalAmount = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+            textContent += `Total: ${totalAmount.toFixed(2)}\r\n`;
+            textContent += `Count: ${expenses.length}\r\n`;
+            if (expenses.length > 0) {
+                textContent += `Average: ${(totalAmount / expenses.length).toFixed(2)}\r\n\r\n`;
+            }
+            
+            expenses.forEach(expense => {
+                const payer = people.find(p => p.id === expense.payer)?.name || 'Unknown';
+                textContent += `Title: ${expense.title}\r\n`;
+                textContent += `Description: ${expense.description || 'N/A'}\r\n`;
+                textContent += `Amount: ${expense.amount.toFixed(2)}\r\n`;
+                textContent += `Paid by: ${payer}\r\n`;
+                textContent += `Date: ${new Date(expense.date).toLocaleString()}\r\n`;
+                textContent += "Shares:\r\n";
+                
+                expense.shares.forEach(share => {
+                    const person = people.find(p => p.id === share.personId)?.name || 'Unknown';
+                    textContent += `  - ${person}: ${share.amount.toFixed(2)}\r\n`;
+                });
+                
+                textContent += "\r\n";
+            });
+            
+            textContent += "BALANCES (WHO OWES WHO)\r\n";
+            textContent += "---------------------\r\n";
+            
+            const transactions = calculateOptimalTransactions(calculateBalancesForExport());
+            if (transactions.length === 0) {
+                textContent += "All settled up! No payments needed.\r\n";
+            } else {
+                transactions.forEach(transaction => {
+                    const fromPerson = people.find(p => p.id === transaction.from)?.name || 'Unknown';
+                    const toPerson = people.find(p => p.id === transaction.to)?.name || 'Unknown';
+                    textContent += `${fromPerson} owes ${toPerson}: ${transaction.amount.toFixed(2)}\r\n`;
+                });
+            }
+            
+            // Create and download the file
+            downloadFile("data:text/plain;charset=utf-8," + encodeURIComponent(textContent), 
+                         'expense-calculator-report.txt', 'text/plain');
+        });
+        
+        // Helper function to download a file
+        function downloadFile(content, fileName, contentType) {
+            const a = document.createElement("a");
+            const isDataUrl = content.startsWith('data:');
+            
+            if (!isDataUrl) {
+                const blob = new Blob([content], { type: contentType });
+                const url = URL.createObjectURL(blob);
+                a.href = url;
+            } else {
+                a.href = content;
+            }
+            
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            
+            if (!isDataUrl) {
+                setTimeout(() => {
+                    URL.revokeObjectURL(a.href);
+                }, 100);
+            }
+        }
+        
+        // Function to calculate balances for export
+        function calculateBalancesForExport() {
+            // Initialize net balances for each person
+            const balances = {};
+            people.forEach(person => {
+                balances[person.id] = 0;
+            });
+            
+            // Calculate net amount for each person
+            expenses.forEach(expense => {
+                // Add the full amount to the payer
+                balances[expense.payer] += expense.amount;
+                
+                // Subtract each person's share
+                expense.shares.forEach(share => {
+                    balances[share.personId] -= share.amount;
+                });
+            });
+            
+            return balances;
+        }
         
         // Initialize the app
         init();

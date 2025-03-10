@@ -1,1148 +1,773 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Easy splitting of group expenses. The simplest way to calculate who owes what">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta name="theme-color" content="#212F54">
-    <!-- pjax verison -->
-    <meta http-equiv="x-pjax-version" content="1738198291">
-    <!-- Facebook stuff -->
-    <meta property="fb:admins" content="622905400">
-    <meta property="og:url" content="https://www.kittysplit.com/en">
-    <meta property="og:image" content="https://assets.kittysplit.com/images/howitworks4-dc9eea387623c3efb20bffebbacf464a.jpg?vsn=d">
-    <meta property="og:title" content="Kittysplit">
-    <meta property="og:description" content="Easy splitting of group expenses. The simplest way to calculate who owes what">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Kittysplit">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#212F54">
-
-    <title>Kittysplit: Easy splitting of group expenses 🐱</title>
-
-    <script type="text/javascript">
-      var root = document.documentElement;
-      root.className += "js";
-      var svgReady = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.1");
-      if (svgReady) {
-        root.className += " svg";
-      } else {
-        root.className += " no-svg";
-      }
-    </script>
-
-    <script src="https://kit.fontawesome.com/3194dc8546.js" crossorigin="anonymous">
-    </script>
-
-    <link phx-track-static rel="stylesheet" href="https://assets.kittysplit.com/assets/css/app-23a81ea2c57b21380687cb37cb817efd.css?vsn=d">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
-
-    <link rel="apple-touch-icon" href="https://assets.kittysplit.com/touch-icon-iphone-34a9c1868f8928fdb72c09e43d5c58bd.png?vsn=d">
-    <link rel="apple-touch-icon" sizes="76x76" href="https://assets.kittysplit.com/touch-icon-ipad-f9ab10bd05267aa040c82bec87f91f9d.png?vsn=d">
-    <link rel="apple-touch-icon" sizes="120x120" href="https://assets.kittysplit.com/touch-icon-iphone-retina-f1e2b67c8be5049acb91ce24f6ef043e.png?vsn=d">
-    <link rel="apple-touch-icon" sizes="152x152" href="https://assets.kittysplit.com/touch-icon-ipad-retina-533bf33be503a3bc5f6f8b9051b55c9f.png?vsn=d">
-    <link rel="icon" sizes="160x160" href="https://assets.kittysplit.com/favicon-160x160-c511202cff5614ebeaa1cce1f79e8523.png?vsn=d">
-    <link rel="icon" sizes="192x192" href="https://assets.kittysplit.com/favicon-192x192-0f038c952b7fe0607cdc357cc59f6229.png?vsn=d">
-
-    <link rel="manifest" href="/app-manifest.json">
-
-
-      <script src="https://js.sentry-cdn.com/1c706511c68035561e2e5a3e03205a0f.min.js" crossorigin="anonymous" onload="Sentry.init({ environment: 'live', dsn: 'https://1c706511c68035561e2e5a3e03205a0f@o4506259172622336.ingest.sentry.io/4506259687800832' })">
-      </script>
-
-
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G96S6E75">
-  </script>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-K0G96S6E75', {
-    'cookie_domain': 'www.kittysplit.com',
-    'anonymize_ip': true,
-    'send_page_view': false
-  });
-
-  gtag('set', 'user_properties', {
-    'split_test_group': '7_0',
-    'kitty_type': ''
-  });
-
-  gtag('event', 'page_view', {
-    'page_location': window.location.href,
-    'page_title': 'Kittysplit: Easy splitting of group expenses 🐱',
-    'url_type': 'default'
-  });
-
-
-</script>
-  </head>
-
-
-  <body class="default  kitty-new">
-    <div class="content">
-      <div class="section section-nav ">
-
-
-
-
-
-
-
-
-
-<nav role="navigation">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-sm-3">
-        <a class="navbar-brand" href="/">
-<img class="svg-fallback" src="https://assets.kittysplit.com/images/kittysplit-logo-0e2ea49fd44608ac926cff45611c7b20.png?vsn=d" alt="https://assets.kittysplit.com/images/kittysplit-logo-0e2ea49fd44608ac926cff45611c7b20">
-<svg width="129px" height="33px" viewBox="0 0 129 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" shape-rendering="geometricPrecision">
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="kittysplit-logo" sketch:type="MSArtboardGroup">
-            <g id="Logo_Kittysplit_positiv_150217" sketch:type="MSLayerGroup" transform="translate(1.000000, 2.000000)">
-                <g id="Group" sketch:type="MSShapeGroup">
-                    <g transform="translate(40.308696, 4.678899)" id="Shape" fill="#2D3782">
-                        <path d="M0.173934783,18.5488073 L0.173934783,0.778623853 C0.173934783,0.560091743 0.271117391,0.382293578 0.465758696,0.246055046 C0.660123913,0.112018349 0.910534783,0.0440366972 1.21588696,0.0440366972 C1.52123913,0.0440366972 1.77551522,0.112018349 1.97871522,0.246055046 C2.1821913,0.382293578 2.2837913,0.560091743 2.2837913,0.778623853 L2.2837913,12.6421101 L8.08189348,7.42100917 C8.23429348,7.30348624 8.38696957,7.24348624 8.53936957,7.24348624 C8.79392174,7.24348624 9.03494565,7.34477064 9.26354565,7.54678899 C9.49325,7.75100917 9.60699783,7.97807339 9.60699783,8.23211009 C9.60699783,8.43357798 9.53162609,8.60284404 9.37867391,8.7393578 L5.84393261,11.8563303 L10.0653022,17.9669725 C10.1492326,18.1012844 10.1928543,18.2289908 10.1928543,18.3465138 C10.1928543,18.6 10.0653022,18.8413761 9.81102609,19.0684404 C9.55619783,19.2974312 9.29363913,19.4113761 9.02252174,19.4113761 C8.78481087,19.4113761 8.59016957,19.3018349 8.43804565,19.0813761 L4.39447609,13.1746789 L2.2837913,15.0517431 L2.2837913,18.5488073 C2.2837913,18.736789 2.17805,18.909633 1.9662913,19.0684404 C1.75398043,19.2294495 1.50467391,19.3092661 1.21588696,19.3092661 C0.9271,19.3092661 0.681934783,19.233578 0.478182609,19.0813761 C0.274982609,18.9305505 0.173934783,18.7527523 0.173934783,18.5488073 L0.173934783,18.5488073 Z"></path>
-                        <path d="M12.5197152,3.63082569 C12.2560522,3.38587156 12.125463,3.10293578 12.125463,2.78119266 C12.125463,2.46137615 12.2530152,2.18284404 12.506463,1.94614679 C12.7607391,1.70834862 13.0743739,1.59110092 13.4479196,1.59110092 C13.8037957,1.59110092 14.1091478,1.70834862 14.3623196,1.94614679 C14.6168717,2.18256881 14.7444239,2.46137615 14.7444239,2.78119266 C14.7444239,3.10293578 14.6168717,3.38587156 14.3623196,3.63082569 C14.1088717,3.8766055 13.8037957,3.99853211 13.4479196,3.99853211 C13.0920435,3.99853211 12.7814457,3.8766055 12.5197152,3.63082569 L12.5197152,3.63082569 Z M12.404863,18.5488073 L12.404863,8.02954128 C12.404863,7.80880734 12.506463,7.63155963 12.7099391,7.49752294 C12.9136913,7.36155963 13.1591326,7.29302752 13.4479196,7.29302752 C13.7527196,7.29302752 14.0064435,7.36155963 14.2104717,7.49752294 C14.4133957,7.63155963 14.5158239,7.80880734 14.5158239,8.02954128 L14.5158239,18.5488073 C14.5158239,18.736789 14.4089783,18.909633 14.1980478,19.0684404 C13.985737,19.2294495 13.7353261,19.3092661 13.4479196,19.3092661 C13.1591326,19.3092661 12.9136913,19.233578 12.7099391,19.0813761 C12.506463,18.9305505 12.404863,18.7527523 12.404863,18.5488073 L12.404863,18.5488073 Z"></path>
-                        <path d="M17.8451565,15.4830275 L17.8451565,2.42642202 C17.8451565,2.22440367 17.9550391,2.05100917 18.1753565,1.90678899 C18.3956739,1.76422018 18.6336609,1.69238532 18.8871087,1.69238532 C19.1582261,1.69238532 19.4044957,1.76422018 19.624813,1.90678899 C19.8451304,2.05100917 19.9561174,2.22440367 19.9561174,2.42642202 L19.9561174,7.29275229 L23.1595543,7.29275229 C23.345637,7.29275229 23.4988652,7.37944954 23.6175826,7.54651376 C23.7357478,7.71577982 23.7959348,7.91201835 23.7959348,8.13055046 C23.7959348,8.3512844 23.7354717,8.54091743 23.6175826,8.7 C23.4988652,8.86073394 23.345637,8.94110092 23.1595543,8.94110092 L19.9561174,8.94110092 L19.9561174,15.4224771 C19.9561174,16.1430275 20.1121065,16.6508257 20.4257413,16.9433945 C20.7393761,17.2359633 21.2865804,17.383211 22.0654217,17.383211 L22.8539261,17.383211 C23.142713,17.383211 23.3671717,17.4759633 23.5284065,17.6614679 C23.688813,17.8453211 23.7694304,18.069633 23.7694304,18.3341284 C23.7694304,18.5977982 23.6843957,18.826789 23.5146022,19.0188991 C23.3450848,19.2126606 23.1250435,19.3089908 22.85365,19.3089908 L22.0651457,19.3089908 C19.2523717,19.3089908 17.8451565,18.0346789 17.8451565,15.4830275 L17.8451565,15.4830275 Z"></path>
-                        <path d="M26.1089913,15.4830275 L26.1089913,2.42642202 C26.1089913,2.22440367 26.2188739,2.05100917 26.4391913,1.90678899 C26.6592326,1.76422018 26.8972196,1.69238532 27.1506674,1.69238532 C27.4220609,1.69238532 27.6686065,1.76422018 27.8889239,1.90678899 C28.1089652,2.05100917 28.2199522,2.22440367 28.2199522,2.42642202 L28.2199522,7.29275229 L31.423113,7.29275229 C31.6100239,7.29275229 31.7624239,7.37944954 31.8822457,7.54651376 C31.9995826,7.71577982 32.0597696,7.91201835 32.0597696,8.13055046 C32.0597696,8.3512844 31.9995826,8.54091743 31.8822457,8.7 C31.7624239,8.86073394 31.6100239,8.94110092 31.423113,8.94110092 L28.2199522,8.94110092 L28.2199522,15.4224771 C28.2199522,16.1430275 28.3759413,16.6508257 28.6895761,16.9433945 C29.0032109,17.2359633 29.5504152,17.383211 30.3292565,17.383211 L31.1177609,17.383211 C31.4065478,17.383211 31.6307304,17.4759633 31.7925174,17.6614679 C31.9523717,17.8453211 32.0335413,18.069633 32.0335413,18.3341284 C32.0335413,18.5977982 31.9479543,18.826789 31.778437,19.0188991 C31.6094717,19.2126606 31.3883261,19.3089908 31.1174848,19.3089908 L30.3289804,19.3089908 C27.5162065,19.3089908 26.1089913,18.0346789 26.1089913,15.4830275 L26.1089913,15.4830275 Z"></path>
-                        <path d="M33.2284457,8.15146789 C33.2284457,7.88256881 33.3813978,7.64724771 33.6861978,7.44577982 C33.9912739,7.24348624 34.2969022,7.14247706 34.6022543,7.14247706 C34.9578543,7.14247706 35.1861783,7.28449541 35.2888826,7.5712844 L38.6455478,16.3513761 L41.6703565,7.5712844 C41.7899022,7.28449541 42.0099435,7.14247706 42.3318609,7.14247706 C42.6209239,7.14247706 42.9204783,7.24321101 43.2352174,7.44577982 C43.5485761,7.64724771 43.7053935,7.89110092 43.7053935,8.17568807 C43.7053935,8.26045872 43.6797174,8.34495413 43.6286413,8.42944954 L39.7634239,18.7502752 L39.2805478,20.0174312 C39.1957891,20.2546789 39.0262717,20.6606422 38.7708913,21.236422 C38.5185478,21.8105505 38.3059609,22.223945 38.1361674,22.4785321 C37.9663739,22.7292661 37.7297674,23.0636697 37.4244152,23.4787156 C37.119063,23.8940367 36.8219935,24.1926606 36.5337587,24.380367 C36.2452478,24.5658716 35.9023478,24.7351376 35.5039543,24.8856881 C35.1055609,25.0387156 34.6864609,25.1152294 34.2461022,25.1152294 C33.5845978,25.1152294 33.2532935,24.7885321 33.2532935,24.1387156 C33.2532935,23.503211 33.4575978,23.1877982 33.8637217,23.1877982 C34.6276543,23.1877982 35.3678435,22.7633945 36.0892587,21.9126606 C36.8092935,21.0646789 37.2974152,19.9758716 37.5516913,18.6473394 L33.3303217,8.42944954 C33.2632326,8.3287156 33.2284457,8.23568807 33.2284457,8.15146789 L33.2284457,8.15146789 Z"></path>
-                        <path d="M45.1794217,17.5849541 C45.1794217,17.366422 45.2520326,17.1520183 45.39615,16.9392661 C45.5397152,16.7289908 45.7133739,16.6213761 45.9176783,16.6213761 C46.053237,16.6213761 46.2476022,16.7292661 46.5021543,16.9392661 C46.7564304,17.1517431 47.1214174,17.3584404 47.5960109,17.5601835 C48.0695,17.7644037 48.6291283,17.8656881 49.2743435,17.8656881 C50.1213783,17.8656881 50.7359478,17.7110092 51.1183283,17.403578 C51.4987761,17.0966972 51.6898283,16.7102752 51.6898283,16.250367 C51.6898283,15.6844954 51.4772413,15.2369725 51.054,14.902844 C50.6310348,14.5709174 50.1130957,14.3193578 49.5029435,14.1484404 C48.891963,13.9775229 48.2826391,13.7892661 47.6716587,13.5825688 C47.0617826,13.3786239 46.5446717,13.0356881 46.1214304,12.5576147 C45.6973609,12.0787156 45.4847739,11.4476147 45.4847739,10.6618349 C45.4847739,9.70651376 45.8287783,8.88110092 46.5154065,8.18394495 C47.2014826,7.4887156 48.2492326,7.14247706 49.6564478,7.14247706 C50.5540065,7.14247706 51.3756413,7.27651376 52.1224565,7.5487156 C52.867063,7.81926606 53.2408848,8.12642202 53.2408848,8.47073394 C53.2408848,8.67330275 53.1608196,8.89954128 52.9987565,9.15330275 C52.8375217,9.40706422 52.638463,9.5333945 52.4024087,9.5333945 C52.3339391,9.5333945 52.0078804,9.40954128 51.4225761,9.1612844 C50.8375478,8.91412844 50.2561087,8.78834862 49.6801913,8.78834862 C48.9005217,8.78834862 48.320187,8.97412844 47.9386348,9.3412844 C47.5570826,9.70844037 47.3671348,10.1229358 47.3671348,10.5831193 C47.3671348,11.0620183 47.5777891,11.4399083 48.002687,11.7112844 C48.4267565,11.9859633 48.9463522,12.1987156 49.5667196,12.3533945 C50.1854304,12.5055963 50.7997239,12.6952294 51.4098761,12.9165138 C52.0200283,13.1394495 52.5379674,13.5187156 52.962037,14.0573394 C53.3850022,14.5956881 53.5967609,15.2933945 53.5967609,16.1474312 C53.5967609,17.1853211 53.2229391,18.006055 52.4780565,18.6079817 C51.7315174,19.2110092 50.689013,19.5121101 49.3510957,19.5121101 C48.1965,19.5121101 47.2144587,19.3054128 46.4002783,18.8911927 C45.5863739,18.4780734 45.1794217,18.0434862 45.1794217,17.5849541 L45.1794217,17.5849541 Z"></path>
-                        <path d="M56.2930261,24.3531193 L56.2930261,8.02926606 C56.2930261,7.80853211 56.3902087,7.6312844 56.5856783,7.49724771 C56.7792152,7.3612844 57.0224478,7.29275229 57.3101304,7.29275229 C57.5986413,7.29275229 57.8346957,7.36293578 58.0224348,7.49944954 C58.2085174,7.63761468 58.3015587,7.81678899 58.3015587,8.03944954 L58.3015587,9.09440367 C58.6069109,8.54477064 59.0558283,8.08293578 59.6499674,7.70779817 C60.2427261,7.32990826 60.9288022,7.14247706 61.7095761,7.14247706 C62.9809565,7.14247706 64.062113,7.61862385 64.9519413,8.57394495 C65.8417696,9.52926606 66.2865457,10.6742202 66.2865457,12.0088073 L66.2865457,14.5940367 C66.2865457,15.8785321 65.8376283,17.0199083 64.938137,18.0162385 C64.03975,19.0147706 62.9972457,19.5123853 61.8111761,19.5123853 C61.064637,19.5123853 60.3818739,19.3202752 59.763163,18.9338532 C59.1447283,18.5501835 58.6916696,18.0756881 58.4031587,17.5109174 L58.4031587,24.3522936 C58.4031587,24.5375229 58.2982457,24.7120183 58.0859348,24.8738532 C57.8733478,25.0345872 57.623213,25.1152294 57.3358065,25.1152294 C57.0464674,25.1152294 56.8015783,25.0387156 56.59755,24.8856881 C56.3946261,24.7351376 56.2930261,24.5581651 56.2930261,24.3531193 L56.2930261,24.3531193 Z M58.4031587,15.2688991 C58.4031587,15.6872477 58.6958109,16.1779817 59.280287,16.7413761 C59.8655913,17.3053211 60.5301326,17.5849541 61.2769478,17.5849541 C62.0406043,17.5849541 62.7137043,17.2797248 63.2981804,16.6670642 C63.8834848,16.0522018 64.1753087,15.3613761 64.1753087,14.587156 L64.1753087,12.0176147 C64.1753087,11.2623853 63.8834848,10.5811927 63.2981804,9.97678899 C62.7137043,9.37045872 62.0226587,9.06880734 61.2255957,9.06880734 C60.4798848,9.06880734 59.8227978,9.3412844 59.255163,9.88844037 C58.6878043,10.4325688 58.4028826,11.1423853 58.4028826,12.0176147 L58.4028826,15.2688991 L58.4031587,15.2688991 Z"></path>
-                        <path d="M69.4383543,18.5488073 L69.4383543,0.778623853 C69.4383543,0.560091743 69.535813,0.382293578 69.7312826,0.246055046 C69.9256478,0.112018349 70.1766109,0.0440366972 70.481963,0.0440366972 C70.786763,0.0440366972 71.0399348,0.112018349 71.2442391,0.246055046 C71.4479913,0.382293578 71.5495913,0.560091743 71.5495913,0.778623853 L71.5495913,18.5488073 C71.5495913,18.736789 71.4419174,18.909633 71.2320913,19.0684404 C71.0195043,19.2294495 70.7688174,19.3092661 70.481963,19.3092661 C70.1929,19.3092661 69.9469065,19.233578 69.7439826,19.0813761 C69.5399543,18.9305505 69.4383543,18.7527523 69.4383543,18.5488073 L69.4383543,18.5488073 Z"></path>
-                        <path d="M75.2745565,3.63082569 C75.0108935,3.38587156 74.8803043,3.10293578 74.8803043,2.78119266 C74.8803043,2.46137615 75.0073043,2.18284404 75.2615804,1.94614679 C75.5158565,1.70834862 75.8292152,1.59110092 76.2027609,1.59110092 C76.558637,1.59110092 76.8639891,1.70834862 77.1171609,1.94614679 C77.371713,2.18256881 77.498713,2.46137615 77.498713,2.78119266 C77.498713,3.10293578 77.371713,3.38587156 77.1171609,3.63082569 C76.863713,3.8766055 76.558637,3.99853211 76.2027609,3.99853211 C75.8468848,3.99853211 75.536563,3.8766055 75.2745565,3.63082569 L75.2745565,3.63082569 Z M75.1602565,18.5488073 L75.1602565,8.02954128 C75.1602565,7.80880734 75.2615804,7.63155963 75.4656087,7.49752294 C75.6685326,7.36155963 75.91425,7.29302752 76.2027609,7.29302752 C76.508113,7.29302752 76.7615609,7.36155963 76.9655891,7.49752294 C77.168513,7.63155963 77.2703891,7.80880734 77.2703891,8.02954128 L77.2703891,18.5488073 C77.2703891,18.736789 77.1643717,18.909633 76.9531652,19.0684404 C76.7414065,19.2294495 76.4904435,19.3092661 76.203037,19.3092661 C75.9145261,19.3092661 75.6688087,19.233578 75.4658848,19.0813761 C75.2618565,18.9305505 75.1602565,18.7527523 75.1602565,18.5488073 L75.1602565,18.5488073 Z"></path>
-                        <path d="M80.6030348,15.4830275 L80.6030348,2.42642202 C80.6030348,2.22440367 80.7123652,2.05100917 80.9324065,1.90678899 C81.1524478,1.76422018 81.391263,1.69238532 81.6438826,1.69238532 C81.9152761,1.69238532 82.1609935,1.76422018 82.3821391,1.90678899 C82.6021804,2.05100917 82.7131674,2.22440367 82.7131674,2.42642202 L82.7131674,7.29275229 L85.9163283,7.29275229 C86.1024109,7.29275229 86.2556391,7.37944954 86.3751848,7.54651376 C86.4922457,7.71577982 86.5529848,7.91201835 86.5529848,8.13055046 C86.5529848,8.3512844 86.4922457,8.54091743 86.3751848,8.7 C86.2556391,8.86073394 86.1024109,8.94110092 85.9163283,8.94110092 L82.7131674,8.94110092 L82.7131674,15.4224771 C82.7131674,16.1430275 82.8691565,16.6508257 83.1830674,16.9433945 C83.4964261,17.2359633 84.0430783,17.383211 84.8224717,17.383211 L85.6107,17.383211 C85.9000391,17.383211 86.1242217,17.4759633 86.2854565,17.6614679 C86.445863,17.8453211 86.5270326,18.069633 86.5270326,18.3341284 C86.5270326,18.5977982 86.4414457,18.826789 86.2716522,19.0188991 C86.1021348,19.2126606 85.8818174,19.3089908 85.6104239,19.3089908 L84.8221957,19.3089908 C82.01025,19.3089908 80.6030348,18.0346789 80.6030348,15.4830275 L80.6030348,15.4830275 Z"></path>
-                    </g>
-                    <path d="M30.3140717,9.15220183 C30.7110848,7.67284404 31.12135,6.1433945 31.12135,4.94504587 C31.12135,3.93275229 30.6089326,0.279908257 28.9833326,0.0429357798 C27.2980978,-0.202018349 23.1750152,3.78357798 23.1341543,3.82266055 L23.0673413,3.88733945 L22.9754043,3.86642202 C22.9422739,3.85816514 19.5886457,3.09825688 15.6083,3.09715596 C12.8443935,3.09825688 10.4261478,3.45220183 9.11280217,3.69082569 L15.9103391,18.9924771 L29.8267783,14.8670642 C29.6970174,14.0878899 29.6117065,13.4086239 29.6117065,12.683945 C29.6114304,11.7663303 29.9532261,10.4961468 30.3140717,9.15220183" id="Shape" fill="#64C8DC"></path>
-                    <path d="M2.2202913,0.0429357798 C0.59413913,0.279908257 0.082273913,3.93275229 0.082273913,4.94504587 C0.082273913,6.14311927 0.49253913,7.67311927 0.889552174,9.15137615 C1.25122609,10.4961468 1.5916413,11.7666055 1.5916413,12.6831193 C1.5916413,13.41 1.50743478,14.0865138 1.37767391,14.8610092 L14.6944522,18.8097248 L8.01314783,3.76954128 C6.49246087,2.31825688 3.52673478,-0.148899083 2.2202913,0.0429357798" id="Shape" fill="#4BE6A0"></path>
-                    <path d="M18.6159913,28.1983486 C18.9682783,27.909633 19.3017913,27.6366055 19.7203391,27.4816514 C19.8547935,27.4312844 20.0803565,27.3712844 20.3920587,27.286789 C20.9196609,27.1447706 21.6916,26.936422 22.5667957,26.6314679 L15.6110609,20.3080734 L8.65035652,26.6358716 C9.52196304,26.9397248 10.290313,27.1461468 10.8148783,27.2873394 C11.1254761,27.3718349 11.3491065,27.4318349 11.4843891,27.4813761 C11.9023848,27.636055 12.2350696,27.9093578 12.5873565,28.1980734 C13.2516217,28.7427523 14.0039587,29.3598165 15.5944957,29.362844 L15.6088522,29.5351376 L15.6088522,29.362844 C17.1996652,29.3600917 17.9525543,28.7430275 18.6159913,28.1983486" id="Shape" fill="#AA3CDC"></path>
-                    <path d="M7.5650587,26.2246789 L14.5740783,19.8520183 L1.20097826,15.8881651 C1.08474565,16.5633028 0.98783913,17.2244037 0.98783913,17.8855046 C0.988115217,21.6137615 3.20095217,24.4188991 7.5650587,26.2246789" id="Shape" fill="#FF8214"></path>
-                    <path d="M30.2155087,17.8846789 C30.2155087,17.2274312 30.1186022,16.5668807 30.0031978,15.8931193 L16.6480435,19.8520183 L23.6515413,26.2191743 C28.0073652,24.4131193 30.2155087,21.609633 30.2155087,17.8846789" id="Shape" fill="#2D3782"></path>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
-        </a>
-      </div>
-
-      <div class="col-xs-8 col-sm-9">
-        <ul class="nav-items list-unstyled pull-right">
-
-            <li class="hidden-xs navbar-item">
-              <a href="https://blog.kittysplit.com" target="_blank">Blog</a>
-            </li>
-            <li class="hidden-xs navbar-item">
-              <a href="/en/help">Help</a>
-            </li>
-            <li class="hidden-xs navbar-item">
-              <a href="/en/share">
-Share
-              </a>
-            </li>
-
-          <li class="dropdown">
-            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="subnav-toggle navbar-item" name="kitty-menu">
-              <span class="hidden-xs">
-
-English
-
-                <span class="caret"></span>
-              </span>
-              <span class="visible-xs navbar-item">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </span>
-            </button>
-
-            <ul class="dropdown-menu dropdown-menu-right language-menu" role="menu">
-
-                <li class="visible-xs">
-                  <a href="/en/share">
-Share
-                  </a>
-                </li>
-                <li class="visible-xs">
-                  <a href="/en/help">Help</a>
-                </li>
-                <li class="visible-xs">
-                  <a href="https://blog.kittysplit.com" target="_blank">Blog</a>
-                </li>
-
-                <li class="visible-xs divider" role="separator"></li>
-
-                  <li class="">
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="de">
-<button class="btn btn-dropdown-link" type="submit">Deutsch</button>
-</form>
-                  </li>
-
-                  <li class="locale-selected visible-xs">
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="en">
-<button class="btn btn-dropdown-link" type="submit">English</button>
-</form>
-                  </li>
-
-                  <li class="">
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="es">
-<button class="btn btn-dropdown-link" type="submit">Español</button>
-</form>
-                  </li>
-
-                  <li class="">
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="fr">
-<button class="btn btn-dropdown-link" type="submit">Français</button>
-</form>
-                  </li>
-
-                  <li class="">
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="nl">
-<button class="btn btn-dropdown-link" type="submit">Nederlands</button>
-</form>
-                  </li>
-
-                  <li class="">
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="pl">
-<button class="btn btn-dropdown-link" type="submit">Polski</button>
-</form>
-                  </li>
-
-                  <li class="">
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="pt">
-<button class="btn btn-dropdown-link" type="submit">Português</button>
-</form>
-                  </li>
-
-                  <li class="">
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="ru">
-<button class="btn btn-dropdown-link" type="submit">Pусский</button>
-</form>
-                  </li>
-
-
-            </ul>
-          </li>
-        </ul>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        .flex-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .flex-item {
+            flex: 1;
+        }
+        
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        .people-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .person-badge {
+            background-color: #e8f4fd;
+            border: 1px solid #cce5ff;
+            border-radius: 4px;
+            padding: 5px 10px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .remove-btn {
+            background-color: #ff6b6b;
+            color: white;
+            width: auto;
+            padding: 4px 8px;
+            margin-left: 10px;
+            margin-bottom: 0;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        
+        .expense-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .expense-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .expense-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0;
+        }
+        
+        .expense-amount {
+            font-weight: bold;
+            color: #2ecc71;
+        }
+        
+        .expense-desc {
+            margin-bottom: 10px;
+            color: #7f8c8d;
+        }
+        
+        .expense-shares {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .expense-share {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .edit-btn {
+            background-color: #f39c12;
+        }
+        
+        .delete-btn {
+            background-color: #e74c3c;
+        }
+        
+        /* Summary section */
+        .summary-box {
+            background-color: #eafaf1;
+            border-left: 4px solid #2ecc71;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .balance-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .balance-positive {
+            color: #2ecc71;
+        }
+        
+        .balance-negative {
+            color: #e74c3c;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tab.active {
+            background-color: white;
+            border-color: #ddd;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Expense Calculator</h1>
+    
+    <div class="tabs">
+        <div class="tab active" data-tab="expenses">Expenses</div>
+        <div class="tab" data-tab="people">People</div>
+        <div class="tab" data-tab="summary">Summary</div>
     </div>
-  </div>
-</nav>
-      </div>
-
-      <div id="pjax-container">
-<div class="page-content container">
-  <div class="section section-first section-kitty-new">
-    <h2>Create a new Kitty</h2>
-    <div class="new-kitty row">
-      <div class="col-xs-12 col-sm-6 col-md-6 kitty-new-box">
-<form action="/en/new" data-check-submit-form="" method="post" name="new-kitty"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-          <div class="kitty-main">
-<div class="form-group ">
-<label class="control-label" for="kitty_name">
-Event name
-</label>
-<input class="form-control" id="kitty_name" name="kitty[name]" placeholder="Ski Trip" type="text">
-
-</div>
-
-<div class="form-group ">
-<label class="control-label" for="kitty_currency">
-Home Currency
-</label>
-<a class="alert-link" href="/en/help#multi_currency" target="_blank"><i class="fa-icon fas fa-question-circle fa-xs hint"></i></a>
-<select autocomplete="off" class="form-control add-select-picker" id="kitty_currency" name="kitty[currency]"><option data-subtext="Euro" data-currency-code="EUR" data-currency-name="Euro" data-currency-symbol="€" value="EUR">EUR</option><option data-subtext="US Dollar" data-currency-code="USD" data-currency-name="US Dollar" data-currency-symbol="$" value="USD">USD</option><option data-subtext="Great Britain Pound" data-currency-code="GBP" data-currency-name="Great Britain Pound" data-currency-symbol="£" value="GBP">GBP</option><option data-subtext="UAE Dirham" data-currency-code="AED" data-currency-name="UAE Dirham" data-currency-symbol="د.إ" value="AED">AED</option><option data-subtext="Afghan Afghani" data-currency-code="AFN" data-currency-name="Afghan Afghani" data-currency-symbol="؋" value="AFN">AFN</option><option data-subtext="Albanian Lek" data-currency-code="ALL" data-currency-name="Albanian Lek" data-currency-symbol="Lek" value="ALL">ALL</option><option data-subtext="Armenian Dram" data-currency-code="AMD" data-currency-name="Armenian Dram" data-currency-symbol="Դ" value="AMD">AMD</option><option data-subtext="Argentine Peso" data-currency-code="ARS" data-currency-name="Argentine Peso" data-currency-symbol="$" value="ARS">ARS</option><option data-subtext="Australian Dollar" data-currency-code="AUD" data-currency-name="Australian Dollar" data-currency-symbol="$" value="AUD">AUD</option><option data-subtext="Azerbaijani Manat" data-currency-code="AZN" data-currency-name="Azerbaijani Manat" data-currency-symbol="ман" value="AZN">AZN</option><option data-subtext="Bosnia-Herzegovina CM" data-currency-code="BAM" data-currency-name="Bosnia-Herzegovina CM" data-currency-symbol="KM" value="BAM">BAM</option><option data-subtext="Barbadian Dollar" data-currency-code="BBD" data-currency-name="Barbadian Dollar" data-currency-symbol="BBD" value="BBD">BBD</option><option data-subtext="Bangladeshi Taka" data-currency-code="BDT" data-currency-name="Bangladeshi Taka" data-currency-symbol="৳" value="BDT">BDT</option><option data-subtext="Bulgarian Lev" data-currency-code="BGN" data-currency-name="Bulgarian Lev" data-currency-symbol="лв." value="BGN">BGN</option><option data-subtext="Bahraini Dinar" data-currency-code="BHD" data-currency-name="Bahraini Dinar" data-currency-symbol=".د.ب" value="BHD">BHD</option><option data-subtext="Burundian Franc" data-currency-code="BIF" data-currency-name="Burundian Franc" data-currency-symbol="FBu" value="BIF">BIF</option><option data-subtext="Brunei Dollar" data-currency-code="BND" data-currency-name="Brunei Dollar" data-currency-symbol="$" value="BND">BND</option><option data-subtext="Bolivian Boliviano" data-currency-code="BOB" data-currency-name="Bolivian Boliviano" data-currency-symbol="Bs" value="BOB">BOB</option><option data-subtext="Brazilian Real" data-currency-code="BRL" data-currency-name="Brazilian Real" data-currency-symbol="R$" value="BRL">BRL</option><option data-subtext="Botswanan Pula" data-currency-code="BWP" data-currency-name="Botswanan Pula" data-currency-symbol="P" value="BWP">BWP</option><option data-subtext="Belarusian Ruble" data-currency-code="BYN" data-currency-name="Belarusian Ruble" data-currency-symbol="Br" value="BYN">BYN</option><option data-subtext="Old Belarusian Ruble (BYR)" data-currency-code="BYR" data-currency-name="Old Belarusian Ruble (BYR)" data-currency-symbol="BYR" value="BYR">BYR</option><option data-subtext="Belize Dollar" data-currency-code="BZD" data-currency-name="Belize Dollar" data-currency-symbol="BZ$" value="BZD">BZD</option><option data-subtext="Canadian Dollar" data-currency-code="CAD" data-currency-name="Canadian Dollar" data-currency-symbol="$" value="CAD">CAD</option><option data-subtext="Congolese Franc" data-currency-code="CDF" data-currency-name="Congolese Franc" data-currency-symbol="FC" value="CDF">CDF</option><option data-subtext="Swiss Franc" data-currency-code="CHF" data-currency-name="Swiss Franc" data-currency-symbol="CHF" value="CHF">CHF</option><option data-subtext="Chilean Peso" data-currency-code="CLP" data-currency-name="Chilean Peso" data-currency-symbol="$" value="CLP">CLP</option><option data-subtext="Colombian Peso" data-currency-code="COP" data-currency-name="Colombian Peso" data-currency-symbol="$" value="COP">COP</option><option data-subtext="Costa Rican Colón" data-currency-code="CRC" data-currency-name="Costa Rican Colón" data-currency-symbol="₡" value="CRC">CRC</option><option data-subtext="Cape Verdean Escudo" data-currency-code="CVE" data-currency-name="Cape Verdean Escudo" data-currency-symbol="$" value="CVE">CVE</option><option data-subtext="Czech Republic Koruna" data-currency-code="CZK" data-currency-name="Czech Republic Koruna" data-currency-symbol="Kč" value="CZK">CZK</option><option data-subtext="Djiboutian Franc" data-currency-code="DJF" data-currency-name="Djiboutian Franc" data-currency-symbol="Fdj" value="DJF">DJF</option><option data-subtext="Danish Krone" data-currency-code="DKK" data-currency-name="Danish Krone" data-currency-symbol="kr" value="DKK">DKK</option><option data-subtext="Dominican Peso" data-currency-code="DOP" data-currency-name="Dominican Peso" data-currency-symbol="RD$" value="DOP">DOP</option><option data-subtext="Algerian Dinar" data-currency-code="DZD" data-currency-name="Algerian Dinar" data-currency-symbol="دج" value="DZD">DZD</option><option data-subtext="Estonian Kroon" data-currency-code="EEK" data-currency-name="Estonian Kroon" data-currency-symbol="kr" value="EEK">EEK</option><option data-subtext="Egyptian Pound" data-currency-code="EGP" data-currency-name="Egyptian Pound" data-currency-symbol="ج.م" value="EGP">EGP</option><option data-subtext="Ethiopian Birr" data-currency-code="ETB" data-currency-name="Ethiopian Birr" data-currency-symbol="Br" value="ETB">ETB</option><option data-subtext="Fijian Dollar" data-currency-code="FJD" data-currency-name="Fijian Dollar" data-currency-symbol="FJD" value="FJD">FJD</option><option data-subtext="Georgian Lari" data-currency-code="GEL" data-currency-name="Georgian Lari" data-currency-symbol="GEL" value="GEL">GEL</option><option data-subtext="Ghanaian Cedi" data-currency-code="GHS" data-currency-name="Ghanaian Cedi" data-currency-symbol="GH₵" value="GHS">GHS</option><option data-subtext="Gambian Dalasi" data-currency-code="GMD" data-currency-name="Gambian Dalasi" data-currency-symbol="D" value="GMD">GMD</option><option data-subtext="Guinean Franc" data-currency-code="GNF" data-currency-name="Guinean Franc" data-currency-symbol="FG" value="GNF">GNF</option><option data-subtext="Guatemalan Quetzal" data-currency-code="GTQ" data-currency-name="Guatemalan Quetzal" data-currency-symbol="Q" value="GTQ">GTQ</option><option data-subtext="Hong Kong Dollar" data-currency-code="HKD" data-currency-name="Hong Kong Dollar" data-currency-symbol="$" value="HKD">HKD</option><option data-subtext="Honduran Lempira" data-currency-code="HNL" data-currency-name="Honduran Lempira" data-currency-symbol="L" value="HNL">HNL</option><option data-subtext="Croatian Kuna" data-currency-code="HRK" data-currency-name="Croatian Kuna" data-currency-symbol="kn" value="HRK">HRK</option><option data-subtext="Hungarian Forint" data-currency-code="HUF" data-currency-name="Hungarian Forint" data-currency-symbol="Ft" value="HUF">HUF</option><option data-subtext="Indonesian Rupiah" data-currency-code="IDR" data-currency-name="Indonesian Rupiah" data-currency-symbol="Rp" value="IDR">IDR</option><option data-subtext="Israeli New Sheqel" data-currency-code="ILS" data-currency-name="Israeli New Sheqel" data-currency-symbol="₪" value="ILS">ILS</option><option data-subtext="Indian Rupee" data-currency-code="INR" data-currency-name="Indian Rupee" data-currency-symbol="₹" value="INR">INR</option><option data-subtext="Iraqi Dinar" data-currency-code="IQD" data-currency-name="Iraqi Dinar" data-currency-symbol="ع.د" value="IQD">IQD</option><option data-subtext="Iranian Rial" data-currency-code="IRR" data-currency-name="Iranian Rial" data-currency-symbol="﷼" value="IRR">IRR</option><option data-subtext="Icelandic Króna" data-currency-code="ISK" data-currency-name="Icelandic Króna" data-currency-symbol="kr" value="ISK">ISK</option><option data-subtext="Jamaican Dollar" data-currency-code="JMD" data-currency-name="Jamaican Dollar" data-currency-symbol="J$" value="JMD">JMD</option><option data-subtext="Jordanian Dinar" data-currency-code="JOD" data-currency-name="Jordanian Dinar" data-currency-symbol="JOD" value="JOD">JOD</option><option data-subtext="Japanese Yen" data-currency-code="JPY" data-currency-name="Japanese Yen" data-currency-symbol="¥" value="JPY">JPY</option><option data-subtext="Kenyan Shilling" data-currency-code="KES" data-currency-name="Kenyan Shilling" data-currency-symbol="Ksh" value="KES">KES</option><option data-subtext="Kyrgyzstani Som" data-currency-code="KGS" data-currency-name="Kyrgyzstani Som" data-currency-symbol="c" value="KGS">KGS</option><option data-subtext="Cambodian Riel" data-currency-code="KHR" data-currency-name="Cambodian Riel" data-currency-symbol="៛" value="KHR">KHR</option><option data-subtext="Comorian Franc" data-currency-code="KMF" data-currency-name="Comorian Franc" data-currency-symbol="CF" value="KMF">KMF</option><option data-subtext="South Korean Won" data-currency-code="KRW" data-currency-name="South Korean Won" data-currency-symbol="₩" value="KRW">KRW</option><option data-subtext="Kuwaiti Dinar" data-currency-code="KWD" data-currency-name="Kuwaiti Dinar" data-currency-symbol="د.ك" value="KWD">KWD</option><option data-subtext="Kazakhstani Tenge" data-currency-code="KZT" data-currency-name="Kazakhstani Tenge" data-currency-symbol="₸" value="KZT">KZT</option><option data-subtext="Lebanese Pound" data-currency-code="LBP" data-currency-name="Lebanese Pound" data-currency-symbol="ل.ل" value="LBP">LBP</option><option data-subtext="Sri Lankan Rupee" data-currency-code="LKR" data-currency-name="Sri Lankan Rupee" data-currency-symbol="රු" value="LKR">LKR</option><option data-subtext="Lithuanian Litas" data-currency-code="LTL" data-currency-name="Lithuanian Litas" data-currency-symbol="Lt" value="LTL">LTL</option><option data-subtext="Latvian Lats" data-currency-code="LVL" data-currency-name="Latvian Lats" data-currency-symbol="Ls" value="LVL">LVL</option><option data-subtext="Libyan Dinar" data-currency-code="LYD" data-currency-name="Libyan Dinar" data-currency-symbol="ل.د" value="LYD">LYD</option><option data-subtext="Moroccan Dirham" data-currency-code="MAD" data-currency-name="Moroccan Dirham" data-currency-symbol="MAD" value="MAD">MAD</option><option data-subtext="Moldovan Leu" data-currency-code="MDL" data-currency-name="Moldovan Leu" data-currency-symbol="MDL" value="MDL">MDL</option><option data-subtext="Malagasy Ariary" data-currency-code="MGA" data-currency-name="Malagasy Ariary" data-currency-symbol="MGA" value="MGA">MGA</option><option data-subtext="Macedonian Denar" data-currency-code="MKD" data-currency-name="Macedonian Denar" data-currency-symbol="ден" value="MKD">MKD</option><option data-subtext="Myanma Kyat" data-currency-code="MMK" data-currency-name="Myanma Kyat" data-currency-symbol="K" value="MMK">MMK</option><option data-subtext="Macanese Pataca" data-currency-code="MOP" data-currency-name="Macanese Pataca" data-currency-symbol="MOP$" value="MOP">MOP</option><option data-subtext="Mauritian Rupee" data-currency-code="MUR" data-currency-name="Mauritian Rupee" data-currency-symbol="₨" value="MUR">MUR</option><option data-subtext="Mexican Peso" data-currency-code="MXN" data-currency-name="Mexican Peso" data-currency-symbol="$" value="MXN">MXN</option><option data-subtext="Malaysian Ringgit" data-currency-code="MYR" data-currency-name="Malaysian Ringgit" data-currency-symbol="RM" value="MYR">MYR</option><option data-subtext="Mozambican Metical" data-currency-code="MZN" data-currency-name="Mozambican Metical" data-currency-symbol="MT" value="MZN">MZN</option><option data-subtext="Namibian Dollar" data-currency-code="NAD" data-currency-name="Namibian Dollar" data-currency-symbol="$" value="NAD">NAD</option><option data-subtext="Nigerian Naira" data-currency-code="NGN" data-currency-name="Nigerian Naira" data-currency-symbol="₦" value="NGN">NGN</option><option data-subtext="Nicaraguan Córdoba" data-currency-code="NIO" data-currency-name="Nicaraguan Córdoba" data-currency-symbol="C$" value="NIO">NIO</option><option data-subtext="Norwegian Krone" data-currency-code="NOK" data-currency-name="Norwegian Krone" data-currency-symbol="kr" value="NOK">NOK</option><option data-subtext="Nepalese Rupee" data-currency-code="NPR" data-currency-name="Nepalese Rupee" data-currency-symbol="रू." value="NPR">NPR</option><option data-subtext="New Zealand Dollar" data-currency-code="NZD" data-currency-name="New Zealand Dollar" data-currency-symbol="$" value="NZD">NZD</option><option data-subtext="Omani Rial" data-currency-code="OMR" data-currency-name="Omani Rial" data-currency-symbol="ر.ع." value="OMR">OMR</option><option data-subtext="Panamanian Balboa" data-currency-code="PAB" data-currency-name="Panamanian Balboa" data-currency-symbol="B/." value="PAB">PAB</option><option data-subtext="Peruvian Nuevo Sol" data-currency-code="PEN" data-currency-name="Peruvian Nuevo Sol" data-currency-symbol="S/." value="PEN">PEN</option><option data-subtext="Philippine Peso" data-currency-code="PHP" data-currency-name="Philippine Peso" data-currency-symbol="₱" value="PHP">PHP</option><option data-subtext="Pakistani Rupee" data-currency-code="PKR" data-currency-name="Pakistani Rupee" data-currency-symbol="₨" value="PKR">PKR</option><option data-subtext="Polish Zloty" data-currency-code="PLN" data-currency-name="Polish Zloty" data-currency-symbol="zł" value="PLN">PLN</option><option data-subtext="Paraguayan Guarani" data-currency-code="PYG" data-currency-name="Paraguayan Guarani" data-currency-symbol="₲" value="PYG">PYG</option><option data-subtext="Qatari Rial" data-currency-code="QAR" data-currency-name="Qatari Rial" data-currency-symbol="ر.ق" value="QAR">QAR</option><option data-subtext="Chinese Yuan Renminbi" data-currency-code="RMB" data-currency-name="Chinese Yuan Renminbi" data-currency-symbol="¥" value="RMB">RMB</option><option data-subtext="Romanian Leu" data-currency-code="RON" data-currency-name="Romanian Leu" data-currency-symbol="RON" value="RON">RON</option><option data-subtext="Serbian Dinar" data-currency-code="RSD" data-currency-name="Serbian Dinar" data-currency-symbol="d./д." value="RSD">RSD</option><option data-subtext="Russian Ruble" data-currency-code="RUB" data-currency-name="Russian Ruble" data-currency-symbol="₽" value="RUB">RUB</option><option data-subtext="Rwandan Franc" data-currency-code="RWF" data-currency-name="Rwandan Franc" data-currency-symbol="FRw" value="RWF">RWF</option><option data-subtext="Saudi Riyal" data-currency-code="SAR" data-currency-name="Saudi Riyal" data-currency-symbol="ر.س" value="SAR">SAR</option><option data-subtext="Sudanese Pound" data-currency-code="SDG" data-currency-name="Sudanese Pound" data-currency-symbol="ج.س." value="SDG">SDG</option><option data-subtext="Swedish Krona" data-currency-code="SEK" data-currency-name="Swedish Krona" data-currency-symbol="kr" value="SEK">SEK</option><option data-subtext="Singapore Dollar" data-currency-code="SGD" data-currency-name="Singapore Dollar" data-currency-symbol="$" value="SGD">SGD</option><option data-subtext="Somali Shilling" data-currency-code="SOS" data-currency-name="Somali Shilling" data-currency-symbol="Sh.So." value="SOS">SOS</option><option data-subtext="Syrian Pound" data-currency-code="SYP" data-currency-name="Syrian Pound" data-currency-symbol="£" value="SYP">SYP</option><option data-subtext="Thai Baht" data-currency-code="THB" data-currency-name="Thai Baht" data-currency-symbol="฿" value="THB">THB</option><option data-subtext="Tunisian Dinar" data-currency-code="TND" data-currency-name="Tunisian Dinar" data-currency-symbol="ت.د" value="TND">TND</option><option data-subtext="Tongan Paʻanga" data-currency-code="TOP" data-currency-name="Tongan Paʻanga" data-currency-symbol="T$" value="TOP">TOP</option><option data-subtext="Turkish Lira" data-currency-code="TRY" data-currency-name="Turkish Lira" data-currency-symbol="₺" value="TRY">TRY</option><option data-subtext="Trinidad and Tobago Dollar" data-currency-code="TTD" data-currency-name="Trinidad and Tobago Dollar" data-currency-symbol="TT$" value="TTD">TTD</option><option data-subtext="New Taiwan Dollar" data-currency-code="TWD" data-currency-name="New Taiwan Dollar" data-currency-symbol="NT$" value="TWD">TWD</option><option data-subtext="Tanzanian Shilling" data-currency-code="TZS" data-currency-name="Tanzanian Shilling" data-currency-symbol="TSh" value="TZS">TZS</option><option data-subtext="Ukrainian Hryvnia" data-currency-code="UAH" data-currency-name="Ukrainian Hryvnia" data-currency-symbol="₴" value="UAH">UAH</option><option data-subtext="Ugandan Shilling" data-currency-code="UGX" data-currency-name="Ugandan Shilling" data-currency-symbol="USh" value="UGX">UGX</option><option data-subtext="Uruguayan Peso" data-currency-code="UYU" data-currency-name="Uruguayan Peso" data-currency-symbol="$U" value="UYU">UYU</option><option data-subtext="Uzbekistan Som" data-currency-code="UZS" data-currency-name="Uzbekistan Som" data-currency-symbol="UZS" value="UZS">UZS</option><option data-subtext="Venezuelan Bolívar" data-currency-code="VEF" data-currency-name="Venezuelan Bolívar" data-currency-symbol="Bs.F." value="VEF">VEF</option><option data-subtext="Vietnamese Dong" data-currency-code="VND" data-currency-name="Vietnamese Dong" data-currency-symbol="₫" value="VND">VND</option><option data-subtext="CFA Franc BEAC" data-currency-code="XAF" data-currency-name="CFA Franc BEAC" data-currency-symbol="FCFA" value="XAF">XAF</option><option data-subtext="CFA Franc BCEAO" data-currency-code="XOF" data-currency-name="CFA Franc BCEAO" data-currency-symbol="CFA" value="XOF">XOF</option><option data-subtext="CFP Franc" data-currency-code="XPF" data-currency-name="CFP Franc" data-currency-symbol="XPF" value="XPF">XPF</option><option data-subtext="Yemeni Rial" data-currency-code="YER" data-currency-name="Yemeni Rial" data-currency-symbol="﷼" value="YER">YER</option><option data-subtext="South African Rand" data-currency-code="ZAR" data-currency-name="South African Rand" data-currency-symbol="R" value="ZAR">ZAR</option><option data-subtext="Zambian Kwacha" data-currency-code="ZMW" data-currency-name="Zambian Kwacha" data-currency-symbol="ZMW" value="ZMW">ZMW</option></select>
-</div>
-
-          </div>
-
-          <h3>
-Participants <a class="alert-link" href="/en/help#number_of_people" target="_blank"><i class="fa-icon fas fa-question-circle fa-xs hint"></i></a>
-          </h3>
-          <div class="kitty-participants">
-
-
-              <div class="party-form-group party-form-group-0">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_0_name">
-You
-</label>
-<input class="form-control" id="kitty_parties_0_name" name="kitty[parties][0][name]" placeholder="Your name" type="text">
-
-                  </div>
-                  <div class="party-form form-group ">
-<input class="form-control" id="kitty_parties_0_email" name="kitty[parties][0][email]" placeholder="Your email (recommended)" type="text">
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-1">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_1_name">
-Person 2
-</label>
-
-<input class="form-control" id="kitty_parties_1_name" name="kitty[parties][1][name]" placeholder="Name" type="text">
-
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-2">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_2_name">
-Person 3
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_2_name" name="kitty[parties][2][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-3">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_3_name">
-Person 4
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_3_name" name="kitty[parties][3][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-4">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_4_name">
-Person 5
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_4_name" name="kitty[parties][4][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-5">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_5_name">
-Person 6
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_5_name" name="kitty[parties][5][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-6">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_6_name">
-Person 7
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_6_name" name="kitty[parties][6][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-7">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_7_name">
-Person 8
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_7_name" name="kitty[parties][7][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-8">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_8_name">
-Person 9
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_8_name" name="kitty[parties][8][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-9">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_9_name">
-Person 10
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_9_name" name="kitty[parties][9][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-10">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_10_name">
-Person 11
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_10_name" name="kitty[parties][10][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-11">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_11_name">
-Person 12
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_11_name" name="kitty[parties][11][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-12">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_12_name">
-Person 13
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_12_name" name="kitty[parties][12][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-13">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_13_name">
-Person 14
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_13_name" name="kitty[parties][13][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-14">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_14_name">
-Person 15
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_14_name" name="kitty[parties][14][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-15">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_15_name">
-Person 16
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_15_name" name="kitty[parties][15][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-16">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_16_name">
-Person 17
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_16_name" name="kitty[parties][16][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-17">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_17_name">
-Person 18
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_17_name" name="kitty[parties][17][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-18">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_18_name">
-Person 19
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_18_name" name="kitty[parties][18][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-19">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_19_name">
-Person 20
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_19_name" name="kitty[parties][19][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-20">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_20_name">
-Person 21
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_20_name" name="kitty[parties][20][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-21">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_21_name">
-Person 22
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_21_name" name="kitty[parties][21][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-22">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_22_name">
-Person 23
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_22_name" name="kitty[parties][22][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-23">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_23_name">
-Person 24
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_23_name" name="kitty[parties][23][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-24">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_24_name">
-Person 25
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_24_name" name="kitty[parties][24][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-
-              <div class="party-form-group party-form-group-25">
-
-                  <div class="party-form form-group ">
-<label class="control-label" for="kitty_parties_25_name">
-Person 26
-</label>
-
-                      <div class="error-container">
-                        <div class="input-group">
-<input class="form-control" id="kitty_parties_25_name" name="kitty[parties][25][name]" placeholder="Name" type="text">
-                          <div class="input-group-addon-close input-group-addon">
-                            <button type="button" class="close" ga-on="click" ga-event-category="UI" ga-event-action="remove person" ga-event-label="new screen" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-
-                  </div>
-
-              </div>
-
-            <div class="party-add form-group">
-              <div class="hint-max-parties-exceeded">
-<div class="tip mb-1">
-
-<strong>Hi there!</strong> Only "Super Kitties" can have 10 or more people. You can add as many people as you want now and upgrade later. See <a class="alert-link" href="/en/help#upgrade" target="_blank">here</a> for more info.
-</div>
-              </div>
-              <div class="error-container">
-                <button type="button" class="btn btn-default" ga-on="click" ga-event-category="UI" ga-event-action="Add participant" ga-event-label="new screen" data-after-submit-label="Creating...">
-<i class="fa-icon fas fa-plus "></i>
-Add new person
-                </button>
-              </div>
+    
+    <!-- People Tab -->
+    <div id="people-tab" class="tab-content">
+        <div class="container">
+            <h2>Add People</h2>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <input type="text" id="person-name" placeholder="Enter name">
+                    <button id="add-person-btn">Add Person</button>
+                </div>
             </div>
-          </div>
-
-          <input type="hidden" name="token_response">
-<button class="btn btn-md btn-primary" data-after-submit-label="Creating..." ga-event-action="create kitty" ga-event-category="UI" ga-event-label="new screen" ga-on="click" gr-action="create_kitty" gr-sitekey="6Lf1DcgpAAAAAEh6l_ijSg8AegFie0nGFwafjAiJ" gr-validate="VALIDATE" id="button-submit-kitty" type="submit">Create Kitty</button>
-</form>
-      </div>
-
-      <div class="col-xs-12 col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5">
-        <div class="hidden-xs">
-          <h3>Good examples for creating a Kitty</h3>
-          <blockquote>
-            <p>You are organising a bachlorette party or a baby shower.</p>
-          </blockquote>
+            
+            <h3>People List</h3>
+            <div id="people-list" class="people-container">
+                <!-- People will be added here dynamically -->
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="recaptcha-hint text-center">
-    This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a>
-    and <a href="https://policies.google.com/terms">Terms of Service</a>
-    apply.
-  </div>
-</div>
-      </div>
-
-      <div class="feedbackify-wrapper">
-        <a href="#" class="btn btn-default" onclick="fby.push(['showForm', '8829']);return false;">Feedback</a>
-      </div>
+    
+    <!-- Expenses Tab -->
+    <div id="expenses-tab" class="tab-content active">
+        <div class="container">
+            <h2>Add Expense</h2>
+            <input type="text" id="expense-title" placeholder="Expense Title (e.g., Dinner, Movie)">
+            <textarea id="expense-description" placeholder="Description (optional)" rows="2"></textarea>
+            <input type="number" id="expense-amount" placeholder="Amount ($)" min="0" step="0.01">
+            
+            <h3>Paid by</h3>
+            <select id="payer-select">
+                <option value="">Select who paid</option>
+                <!-- Options will be added dynamically -->
+            </select>
+            
+            <h3>Split between</h3>
+            <div id="expense-people-list">
+                <!-- Checkboxes will be added dynamically -->
+            </div>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="split-equally" checked>
+                <label for="split-equally">Split equally</label>
+            </div>
+            
+            <div id="custom-split-container" style="display: none;">
+                <!-- Custom split inputs will be added here -->
+            </div>
+            
+            <button id="add-expense-btn">Add Expense</button>
+        </div>
+        
+        <div class="container">
+            <h2>Expense List</h2>
+            <div id="expense-list">
+                <!-- Expenses will be added here dynamically -->
+            </div>
+        </div>
     </div>
-<footer class="section section-footer pb-3">
-  <div class="text-center mb-1">
-    <a href="/"><img class="svg-fallback" src="https://assets.kittysplit.com/images/kittysplit-logo-0e2ea49fd44608ac926cff45611c7b20.png?vsn=d" alt="https://assets.kittysplit.com/images/kittysplit-logo-0e2ea49fd44608ac926cff45611c7b20">
-<svg width="129px" height="33px" viewBox="0 0 129 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" shape-rendering="geometricPrecision">
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="kittysplit-logo" sketch:type="MSArtboardGroup">
-            <g id="Logo_Kittysplit_positiv_150217" sketch:type="MSLayerGroup" transform="translate(1.000000, 2.000000)">
-                <g id="Group" sketch:type="MSShapeGroup">
-                    <g transform="translate(40.308696, 4.678899)" id="Shape" fill="#2D3782">
-                        <path d="M0.173934783,18.5488073 L0.173934783,0.778623853 C0.173934783,0.560091743 0.271117391,0.382293578 0.465758696,0.246055046 C0.660123913,0.112018349 0.910534783,0.0440366972 1.21588696,0.0440366972 C1.52123913,0.0440366972 1.77551522,0.112018349 1.97871522,0.246055046 C2.1821913,0.382293578 2.2837913,0.560091743 2.2837913,0.778623853 L2.2837913,12.6421101 L8.08189348,7.42100917 C8.23429348,7.30348624 8.38696957,7.24348624 8.53936957,7.24348624 C8.79392174,7.24348624 9.03494565,7.34477064 9.26354565,7.54678899 C9.49325,7.75100917 9.60699783,7.97807339 9.60699783,8.23211009 C9.60699783,8.43357798 9.53162609,8.60284404 9.37867391,8.7393578 L5.84393261,11.8563303 L10.0653022,17.9669725 C10.1492326,18.1012844 10.1928543,18.2289908 10.1928543,18.3465138 C10.1928543,18.6 10.0653022,18.8413761 9.81102609,19.0684404 C9.55619783,19.2974312 9.29363913,19.4113761 9.02252174,19.4113761 C8.78481087,19.4113761 8.59016957,19.3018349 8.43804565,19.0813761 L4.39447609,13.1746789 L2.2837913,15.0517431 L2.2837913,18.5488073 C2.2837913,18.736789 2.17805,18.909633 1.9662913,19.0684404 C1.75398043,19.2294495 1.50467391,19.3092661 1.21588696,19.3092661 C0.9271,19.3092661 0.681934783,19.233578 0.478182609,19.0813761 C0.274982609,18.9305505 0.173934783,18.7527523 0.173934783,18.5488073 L0.173934783,18.5488073 Z"></path>
-                        <path d="M12.5197152,3.63082569 C12.2560522,3.38587156 12.125463,3.10293578 12.125463,2.78119266 C12.125463,2.46137615 12.2530152,2.18284404 12.506463,1.94614679 C12.7607391,1.70834862 13.0743739,1.59110092 13.4479196,1.59110092 C13.8037957,1.59110092 14.1091478,1.70834862 14.3623196,1.94614679 C14.6168717,2.18256881 14.7444239,2.46137615 14.7444239,2.78119266 C14.7444239,3.10293578 14.6168717,3.38587156 14.3623196,3.63082569 C14.1088717,3.8766055 13.8037957,3.99853211 13.4479196,3.99853211 C13.0920435,3.99853211 12.7814457,3.8766055 12.5197152,3.63082569 L12.5197152,3.63082569 Z M12.404863,18.5488073 L12.404863,8.02954128 C12.404863,7.80880734 12.506463,7.63155963 12.7099391,7.49752294 C12.9136913,7.36155963 13.1591326,7.29302752 13.4479196,7.29302752 C13.7527196,7.29302752 14.0064435,7.36155963 14.2104717,7.49752294 C14.4133957,7.63155963 14.5158239,7.80880734 14.5158239,8.02954128 L14.5158239,18.5488073 C14.5158239,18.736789 14.4089783,18.909633 14.1980478,19.0684404 C13.985737,19.2294495 13.7353261,19.3092661 13.4479196,19.3092661 C13.1591326,19.3092661 12.9136913,19.233578 12.7099391,19.0813761 C12.506463,18.9305505 12.404863,18.7527523 12.404863,18.5488073 L12.404863,18.5488073 Z"></path>
-                        <path d="M17.8451565,15.4830275 L17.8451565,2.42642202 C17.8451565,2.22440367 17.9550391,2.05100917 18.1753565,1.90678899 C18.3956739,1.76422018 18.6336609,1.69238532 18.8871087,1.69238532 C19.1582261,1.69238532 19.4044957,1.76422018 19.624813,1.90678899 C19.8451304,2.05100917 19.9561174,2.22440367 19.9561174,2.42642202 L19.9561174,7.29275229 L23.1595543,7.29275229 C23.345637,7.29275229 23.4988652,7.37944954 23.6175826,7.54651376 C23.7357478,7.71577982 23.7959348,7.91201835 23.7959348,8.13055046 C23.7959348,8.3512844 23.7354717,8.54091743 23.6175826,8.7 C23.4988652,8.86073394 23.345637,8.94110092 23.1595543,8.94110092 L19.9561174,8.94110092 L19.9561174,15.4224771 C19.9561174,16.1430275 20.1121065,16.6508257 20.4257413,16.9433945 C20.7393761,17.2359633 21.2865804,17.383211 22.0654217,17.383211 L22.8539261,17.383211 C23.142713,17.383211 23.3671717,17.4759633 23.5284065,17.6614679 C23.688813,17.8453211 23.7694304,18.069633 23.7694304,18.3341284 C23.7694304,18.5977982 23.6843957,18.826789 23.5146022,19.0188991 C23.3450848,19.2126606 23.1250435,19.3089908 22.85365,19.3089908 L22.0651457,19.3089908 C19.2523717,19.3089908 17.8451565,18.0346789 17.8451565,15.4830275 L17.8451565,15.4830275 Z"></path>
-                        <path d="M26.1089913,15.4830275 L26.1089913,2.42642202 C26.1089913,2.22440367 26.2188739,2.05100917 26.4391913,1.90678899 C26.6592326,1.76422018 26.8972196,1.69238532 27.1506674,1.69238532 C27.4220609,1.69238532 27.6686065,1.76422018 27.8889239,1.90678899 C28.1089652,2.05100917 28.2199522,2.22440367 28.2199522,2.42642202 L28.2199522,7.29275229 L31.423113,7.29275229 C31.6100239,7.29275229 31.7624239,7.37944954 31.8822457,7.54651376 C31.9995826,7.71577982 32.0597696,7.91201835 32.0597696,8.13055046 C32.0597696,8.3512844 31.9995826,8.54091743 31.8822457,8.7 C31.7624239,8.86073394 31.6100239,8.94110092 31.423113,8.94110092 L28.2199522,8.94110092 L28.2199522,15.4224771 C28.2199522,16.1430275 28.3759413,16.6508257 28.6895761,16.9433945 C29.0032109,17.2359633 29.5504152,17.383211 30.3292565,17.383211 L31.1177609,17.383211 C31.4065478,17.383211 31.6307304,17.4759633 31.7925174,17.6614679 C31.9523717,17.8453211 32.0335413,18.069633 32.0335413,18.3341284 C32.0335413,18.5977982 31.9479543,18.826789 31.778437,19.0188991 C31.6094717,19.2126606 31.3883261,19.3089908 31.1174848,19.3089908 L30.3289804,19.3089908 C27.5162065,19.3089908 26.1089913,18.0346789 26.1089913,15.4830275 L26.1089913,15.4830275 Z"></path>
-                        <path d="M33.2284457,8.15146789 C33.2284457,7.88256881 33.3813978,7.64724771 33.6861978,7.44577982 C33.9912739,7.24348624 34.2969022,7.14247706 34.6022543,7.14247706 C34.9578543,7.14247706 35.1861783,7.28449541 35.2888826,7.5712844 L38.6455478,16.3513761 L41.6703565,7.5712844 C41.7899022,7.28449541 42.0099435,7.14247706 42.3318609,7.14247706 C42.6209239,7.14247706 42.9204783,7.24321101 43.2352174,7.44577982 C43.5485761,7.64724771 43.7053935,7.89110092 43.7053935,8.17568807 C43.7053935,8.26045872 43.6797174,8.34495413 43.6286413,8.42944954 L39.7634239,18.7502752 L39.2805478,20.0174312 C39.1957891,20.2546789 39.0262717,20.6606422 38.7708913,21.236422 C38.5185478,21.8105505 38.3059609,22.223945 38.1361674,22.4785321 C37.9663739,22.7292661 37.7297674,23.0636697 37.4244152,23.4787156 C37.119063,23.8940367 36.8219935,24.1926606 36.5337587,24.380367 C36.2452478,24.5658716 35.9023478,24.7351376 35.5039543,24.8856881 C35.1055609,25.0387156 34.6864609,25.1152294 34.2461022,25.1152294 C33.5845978,25.1152294 33.2532935,24.7885321 33.2532935,24.1387156 C33.2532935,23.503211 33.4575978,23.1877982 33.8637217,23.1877982 C34.6276543,23.1877982 35.3678435,22.7633945 36.0892587,21.9126606 C36.8092935,21.0646789 37.2974152,19.9758716 37.5516913,18.6473394 L33.3303217,8.42944954 C33.2632326,8.3287156 33.2284457,8.23568807 33.2284457,8.15146789 L33.2284457,8.15146789 Z"></path>
-                        <path d="M45.1794217,17.5849541 C45.1794217,17.366422 45.2520326,17.1520183 45.39615,16.9392661 C45.5397152,16.7289908 45.7133739,16.6213761 45.9176783,16.6213761 C46.053237,16.6213761 46.2476022,16.7292661 46.5021543,16.9392661 C46.7564304,17.1517431 47.1214174,17.3584404 47.5960109,17.5601835 C48.0695,17.7644037 48.6291283,17.8656881 49.2743435,17.8656881 C50.1213783,17.8656881 50.7359478,17.7110092 51.1183283,17.403578 C51.4987761,17.0966972 51.6898283,16.7102752 51.6898283,16.250367 C51.6898283,15.6844954 51.4772413,15.2369725 51.054,14.902844 C50.6310348,14.5709174 50.1130957,14.3193578 49.5029435,14.1484404 C48.891963,13.9775229 48.2826391,13.7892661 47.6716587,13.5825688 C47.0617826,13.3786239 46.5446717,13.0356881 46.1214304,12.5576147 C45.6973609,12.0787156 45.4847739,11.4476147 45.4847739,10.6618349 C45.4847739,9.70651376 45.8287783,8.88110092 46.5154065,8.18394495 C47.2014826,7.4887156 48.2492326,7.14247706 49.6564478,7.14247706 C50.5540065,7.14247706 51.3756413,7.27651376 52.1224565,7.5487156 C52.867063,7.81926606 53.2408848,8.12642202 53.2408848,8.47073394 C53.2408848,8.67330275 53.1608196,8.89954128 52.9987565,9.15330275 C52.8375217,9.40706422 52.638463,9.5333945 52.4024087,9.5333945 C52.3339391,9.5333945 52.0078804,9.40954128 51.4225761,9.1612844 C50.8375478,8.91412844 50.2561087,8.78834862 49.6801913,8.78834862 C48.9005217,8.78834862 48.320187,8.97412844 47.9386348,9.3412844 C47.5570826,9.70844037 47.3671348,10.1229358 47.3671348,10.5831193 C47.3671348,11.0620183 47.5777891,11.4399083 48.002687,11.7112844 C48.4267565,11.9859633 48.9463522,12.1987156 49.5667196,12.3533945 C50.1854304,12.5055963 50.7997239,12.6952294 51.4098761,12.9165138 C52.0200283,13.1394495 52.5379674,13.5187156 52.962037,14.0573394 C53.3850022,14.5956881 53.5967609,15.2933945 53.5967609,16.1474312 C53.5967609,17.1853211 53.2229391,18.006055 52.4780565,18.6079817 C51.7315174,19.2110092 50.689013,19.5121101 49.3510957,19.5121101 C48.1965,19.5121101 47.2144587,19.3054128 46.4002783,18.8911927 C45.5863739,18.4780734 45.1794217,18.0434862 45.1794217,17.5849541 L45.1794217,17.5849541 Z"></path>
-                        <path d="M56.2930261,24.3531193 L56.2930261,8.02926606 C56.2930261,7.80853211 56.3902087,7.6312844 56.5856783,7.49724771 C56.7792152,7.3612844 57.0224478,7.29275229 57.3101304,7.29275229 C57.5986413,7.29275229 57.8346957,7.36293578 58.0224348,7.49944954 C58.2085174,7.63761468 58.3015587,7.81678899 58.3015587,8.03944954 L58.3015587,9.09440367 C58.6069109,8.54477064 59.0558283,8.08293578 59.6499674,7.70779817 C60.2427261,7.32990826 60.9288022,7.14247706 61.7095761,7.14247706 C62.9809565,7.14247706 64.062113,7.61862385 64.9519413,8.57394495 C65.8417696,9.52926606 66.2865457,10.6742202 66.2865457,12.0088073 L66.2865457,14.5940367 C66.2865457,15.8785321 65.8376283,17.0199083 64.938137,18.0162385 C64.03975,19.0147706 62.9972457,19.5123853 61.8111761,19.5123853 C61.064637,19.5123853 60.3818739,19.3202752 59.763163,18.9338532 C59.1447283,18.5501835 58.6916696,18.0756881 58.4031587,17.5109174 L58.4031587,24.3522936 C58.4031587,24.5375229 58.2982457,24.7120183 58.0859348,24.8738532 C57.8733478,25.0345872 57.623213,25.1152294 57.3358065,25.1152294 C57.0464674,25.1152294 56.8015783,25.0387156 56.59755,24.8856881 C56.3946261,24.7351376 56.2930261,24.5581651 56.2930261,24.3531193 L56.2930261,24.3531193 Z M58.4031587,15.2688991 C58.4031587,15.6872477 58.6958109,16.1779817 59.280287,16.7413761 C59.8655913,17.3053211 60.5301326,17.5849541 61.2769478,17.5849541 C62.0406043,17.5849541 62.7137043,17.2797248 63.2981804,16.6670642 C63.8834848,16.0522018 64.1753087,15.3613761 64.1753087,14.587156 L64.1753087,12.0176147 C64.1753087,11.2623853 63.8834848,10.5811927 63.2981804,9.97678899 C62.7137043,9.37045872 62.0226587,9.06880734 61.2255957,9.06880734 C60.4798848,9.06880734 59.8227978,9.3412844 59.255163,9.88844037 C58.6878043,10.4325688 58.4028826,11.1423853 58.4028826,12.0176147 L58.4028826,15.2688991 L58.4031587,15.2688991 Z"></path>
-                        <path d="M69.4383543,18.5488073 L69.4383543,0.778623853 C69.4383543,0.560091743 69.535813,0.382293578 69.7312826,0.246055046 C69.9256478,0.112018349 70.1766109,0.0440366972 70.481963,0.0440366972 C70.786763,0.0440366972 71.0399348,0.112018349 71.2442391,0.246055046 C71.4479913,0.382293578 71.5495913,0.560091743 71.5495913,0.778623853 L71.5495913,18.5488073 C71.5495913,18.736789 71.4419174,18.909633 71.2320913,19.0684404 C71.0195043,19.2294495 70.7688174,19.3092661 70.481963,19.3092661 C70.1929,19.3092661 69.9469065,19.233578 69.7439826,19.0813761 C69.5399543,18.9305505 69.4383543,18.7527523 69.4383543,18.5488073 L69.4383543,18.5488073 Z"></path>
-                        <path d="M75.2745565,3.63082569 C75.0108935,3.38587156 74.8803043,3.10293578 74.8803043,2.78119266 C74.8803043,2.46137615 75.0073043,2.18284404 75.2615804,1.94614679 C75.5158565,1.70834862 75.8292152,1.59110092 76.2027609,1.59110092 C76.558637,1.59110092 76.8639891,1.70834862 77.1171609,1.94614679 C77.371713,2.18256881 77.498713,2.46137615 77.498713,2.78119266 C77.498713,3.10293578 77.371713,3.38587156 77.1171609,3.63082569 C76.863713,3.8766055 76.558637,3.99853211 76.2027609,3.99853211 C75.8468848,3.99853211 75.536563,3.8766055 75.2745565,3.63082569 L75.2745565,3.63082569 Z M75.1602565,18.5488073 L75.1602565,8.02954128 C75.1602565,7.80880734 75.2615804,7.63155963 75.4656087,7.49752294 C75.6685326,7.36155963 75.91425,7.29302752 76.2027609,7.29302752 C76.508113,7.29302752 76.7615609,7.36155963 76.9655891,7.49752294 C77.168513,7.63155963 77.2703891,7.80880734 77.2703891,8.02954128 L77.2703891,18.5488073 C77.2703891,18.736789 77.1643717,18.909633 76.9531652,19.0684404 C76.7414065,19.2294495 76.4904435,19.3092661 76.203037,19.3092661 C75.9145261,19.3092661 75.6688087,19.233578 75.4658848,19.0813761 C75.2618565,18.9305505 75.1602565,18.7527523 75.1602565,18.5488073 L75.1602565,18.5488073 Z"></path>
-                        <path d="M80.6030348,15.4830275 L80.6030348,2.42642202 C80.6030348,2.22440367 80.7123652,2.05100917 80.9324065,1.90678899 C81.1524478,1.76422018 81.391263,1.69238532 81.6438826,1.69238532 C81.9152761,1.69238532 82.1609935,1.76422018 82.3821391,1.90678899 C82.6021804,2.05100917 82.7131674,2.22440367 82.7131674,2.42642202 L82.7131674,7.29275229 L85.9163283,7.29275229 C86.1024109,7.29275229 86.2556391,7.37944954 86.3751848,7.54651376 C86.4922457,7.71577982 86.5529848,7.91201835 86.5529848,8.13055046 C86.5529848,8.3512844 86.4922457,8.54091743 86.3751848,8.7 C86.2556391,8.86073394 86.1024109,8.94110092 85.9163283,8.94110092 L82.7131674,8.94110092 L82.7131674,15.4224771 C82.7131674,16.1430275 82.8691565,16.6508257 83.1830674,16.9433945 C83.4964261,17.2359633 84.0430783,17.383211 84.8224717,17.383211 L85.6107,17.383211 C85.9000391,17.383211 86.1242217,17.4759633 86.2854565,17.6614679 C86.445863,17.8453211 86.5270326,18.069633 86.5270326,18.3341284 C86.5270326,18.5977982 86.4414457,18.826789 86.2716522,19.0188991 C86.1021348,19.2126606 85.8818174,19.3089908 85.6104239,19.3089908 L84.8221957,19.3089908 C82.01025,19.3089908 80.6030348,18.0346789 80.6030348,15.4830275 L80.6030348,15.4830275 Z"></path>
-                    </g>
-                    <path d="M30.3140717,9.15220183 C30.7110848,7.67284404 31.12135,6.1433945 31.12135,4.94504587 C31.12135,3.93275229 30.6089326,0.279908257 28.9833326,0.0429357798 C27.2980978,-0.202018349 23.1750152,3.78357798 23.1341543,3.82266055 L23.0673413,3.88733945 L22.9754043,3.86642202 C22.9422739,3.85816514 19.5886457,3.09825688 15.6083,3.09715596 C12.8443935,3.09825688 10.4261478,3.45220183 9.11280217,3.69082569 L15.9103391,18.9924771 L29.8267783,14.8670642 C29.6970174,14.0878899 29.6117065,13.4086239 29.6117065,12.683945 C29.6114304,11.7663303 29.9532261,10.4961468 30.3140717,9.15220183" id="Shape" fill="#64C8DC"></path>
-                    <path d="M2.2202913,0.0429357798 C0.59413913,0.279908257 0.082273913,3.93275229 0.082273913,4.94504587 C0.082273913,6.14311927 0.49253913,7.67311927 0.889552174,9.15137615 C1.25122609,10.4961468 1.5916413,11.7666055 1.5916413,12.6831193 C1.5916413,13.41 1.50743478,14.0865138 1.37767391,14.8610092 L14.6944522,18.8097248 L8.01314783,3.76954128 C6.49246087,2.31825688 3.52673478,-0.148899083 2.2202913,0.0429357798" id="Shape" fill="#4BE6A0"></path>
-                    <path d="M18.6159913,28.1983486 C18.9682783,27.909633 19.3017913,27.6366055 19.7203391,27.4816514 C19.8547935,27.4312844 20.0803565,27.3712844 20.3920587,27.286789 C20.9196609,27.1447706 21.6916,26.936422 22.5667957,26.6314679 L15.6110609,20.3080734 L8.65035652,26.6358716 C9.52196304,26.9397248 10.290313,27.1461468 10.8148783,27.2873394 C11.1254761,27.3718349 11.3491065,27.4318349 11.4843891,27.4813761 C11.9023848,27.636055 12.2350696,27.9093578 12.5873565,28.1980734 C13.2516217,28.7427523 14.0039587,29.3598165 15.5944957,29.362844 L15.6088522,29.5351376 L15.6088522,29.362844 C17.1996652,29.3600917 17.9525543,28.7430275 18.6159913,28.1983486" id="Shape" fill="#AA3CDC"></path>
-                    <path d="M7.5650587,26.2246789 L14.5740783,19.8520183 L1.20097826,15.8881651 C1.08474565,16.5633028 0.98783913,17.2244037 0.98783913,17.8855046 C0.988115217,21.6137615 3.20095217,24.4188991 7.5650587,26.2246789" id="Shape" fill="#FF8214"></path>
-                    <path d="M30.2155087,17.8846789 C30.2155087,17.2274312 30.1186022,16.5668807 30.0031978,15.8931193 L16.6480435,19.8520183 L23.6515413,26.2191743 C28.0073652,24.4131193 30.2155087,21.609633 30.2155087,17.8846789" id="Shape" fill="#2D3782"></path>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg></a>
-  </div>
-
-  <div class="container">
-    <div class="footer-nav row mb-4">
-      <div class="col-md-3 col-xs-6 mb-2">
-        <h4>Kittysplit</h4>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="/en/help">Help</a>
-          </li>
-          <li>
-
-
-            <a href="/en/share">
-Share
-            </a>
-          </li>
-          <li><a href="https://blog.kittysplit.com" target="_blank">Blog</a></li>
-          <li>
-            <a href="/en/about">About</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-3 col-xs-6 mb-2">
-        <h4>Use Cases</h4>
-        <ul class="list-unstyled">
-
-            <li>
-              <a href="/en/vegas">Vegas</a>
-            </li>
-
-            <li>
-              <a href="/en/stag-do">Stag-do</a>
-            </li>
-
-            <li>
-              <a href="/en/bachelor-party">Bachelor-party</a>
-            </li>
-
-            <li>
-              <a href="/en/baby-shower">Baby-shower</a>
-            </li>
-
-            <li>
-              <a href="/en/house-sharing">House-sharing</a>
-            </li>
-
-        </ul>
-      </div>
-      <div class="col-md-3 col-xs-6 mb-2">
-        <h4>Language</h4>
-        <ul class="list-unstyled language-selection">
-
-            <li>
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="de">
-<button class="btn btn-link" type="submit">Deutsch</button>
-</form>
-            </li>
-
-            <li>
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="en">
-<button class="btn btn-link" type="submit">English</button>
-</form>
-            </li>
-
-            <li>
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="es">
-<button class="btn btn-link" type="submit">Español</button>
-</form>
-            </li>
-
-            <li>
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="fr">
-<button class="btn btn-link" type="submit">Français</button>
-</form>
-            </li>
-
-            <li>
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="nl">
-<button class="btn btn-link" type="submit">Nederlands</button>
-</form>
-            </li>
-
-            <li>
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="pl">
-<button class="btn btn-link" type="submit">Polski</button>
-</form>
-            </li>
-
-            <li>
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="pt">
-<button class="btn btn-link" type="submit">Português</button>
-</form>
-            </li>
-
-            <li>
-<form action="/language" autocomplete="off" class="form set-language-mobile" method="post"><input name="_csrf_token" type="hidden" hidden value="fywmCFkWKigNHQMaSzVpITU6CgxnQCAh0bpmiRyLXS7mfdPLreHy25VR">
-<input id="language_new_locale" name="language[new_locale]" type="hidden" value="ru">
-<button class="btn btn-link" type="submit">Pусский</button>
-</form>
-            </li>
-
-        </ul>
-      </div>
-      <div class="col-md-3 col-xs-6 mb-2">
-        <h4>Legal</h4>
-        <ul class="list-unstyled">
-          <li><a href="/legal">Imprint</a></li>
-          <li>
-            <a href="/en/privacy-policy">
-Privacy Policy
-            </a>
-          </li>
-        </ul>
-      </div>
+    
+    <!-- Summary Tab -->
+    <div id="summary-tab" class="tab-content">
+        <div class="container">
+            <h2>Balance Summary</h2>
+            <div class="summary-box">
+                <div class="summary-title">Who owes who</div>
+                <div id="balances-list">
+                    <!-- Balances will be added here dynamically -->
+                </div>
+            </div>
+            
+            <div>
+                <h3>Total Expenses: $<span id="total-expenses">0.00</span></h3>
+            </div>
+        </div>
     </div>
-
-    <div class="row">
-      <div class="col-xs-6">
-        <span class="copyright">&copy; 2025 Kittysplit.com</span>
-        - <small class="text-monospace text-muted">64f972b</small>
-
-          <span class="split-group">-  Group 7_0</span>
-
-      </div>
-      <div class="col-xs-6 text-right">
-Follow us&nbsp;
-<a class="btn btn-tiny btn-twitter" href="https://www.twitter.com/kittysplit" title="Twitter">
-          <i class="fab fa-twitter"></i>
-</a>
-<a class="btn btn-tiny btn-facebook" href="https://www.facebook.com/kittysplit" title="Facebook">
-          <i class="fab fa-facebook-f"></i>
-</a>
-      </div>
-    </div>
-  </div>
-</footer>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous">
+    
+    <script>
+        // Data storage
+        let people = JSON.parse(localStorage.getItem('people')) || [];
+        let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        
+        // DOM Elements
+        const personNameInput = document.getElementById('person-name');
+        const addPersonBtn = document.getElementById('add-person-btn');
+        const peopleList = document.getElementById('people-list');
+        const expenseTitleInput = document.getElementById('expense-title');
+        const expenseDescInput = document.getElementById('expense-description');
+        const expenseAmountInput = document.getElementById('expense-amount');
+        const payerSelect = document.getElementById('payer-select');
+        const expensePeopleList = document.getElementById('expense-people-list');
+        const splitEquallyCheckbox = document.getElementById('split-equally');
+        const customSplitContainer = document.getElementById('custom-split-container');
+        const addExpenseBtn = document.getElementById('add-expense-btn');
+        const expenseList = document.getElementById('expense-list');
+        const balancesList = document.getElementById('balances-list');
+        const totalExpensesSpan = document.getElementById('total-expenses');
+        
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
+        
+        // Initialize the app
+        function init() {
+            renderPeopleList();
+            renderPayerSelect();
+            renderExpensePeopleList();
+            renderExpenseList();
+            updateBalances();
+        }
+        
+        // Add a person
+        addPersonBtn.addEventListener('click', () => {
+            const name = personNameInput.value.trim();
+            if (name) {
+                const person = {
+                    id: Date.now().toString(),
+                    name: name
+                };
+                people.push(person);
+                savePeople();
+                renderPeopleList();
+                renderPayerSelect();
+                renderExpensePeopleList();
+                personNameInput.value = '';
+            }
+        });
+        
+        // Render people list
+        function renderPeopleList() {
+            peopleList.innerHTML = '';
+            people.forEach(person => {
+                const personElement = document.createElement('div');
+                personElement.className = 'person-badge';
+                personElement.innerHTML = `
+                    ${person.name}
+                    <button class="remove-btn" data-id="${person.id}">×</button>
+                `;
+                peopleList.appendChild(personElement);
+            });
+            
+            // Add event listeners to remove buttons
+            const removeButtons = peopleList.querySelectorAll('.remove-btn');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const personId = e.target.getAttribute('data-id');
+                    removePerson(personId);
+                });
+            });
+        }
+        
+        // Remove a person
+        function removePerson(personId) {
+            // Check if person is involved in any expenses
+            const isInvolved = expenses.some(expense => {
+                return expense.payer === personId || expense.shares.some(share => share.personId === personId);
+            });
+            
+            if (isInvolved) {
+                alert('This person is involved in one or more expenses. Please remove those expenses first.');
+                return;
+            }
+            
+            people = people.filter(person => person.id !== personId);
+            savePeople();
+            renderPeopleList();
+            renderPayerSelect();
+            renderExpensePeopleList();
+        }
+        
+        // Render payer select dropdown
+        function renderPayerSelect() {
+            payerSelect.innerHTML = '<option value="">Select who paid</option>';
+            people.forEach(person => {
+                const option = document.createElement('option');
+                option.value = person.id;
+                option.textContent = person.name;
+                payerSelect.appendChild(option);
+            });
+        }
+        
+        // Render expense people list with checkboxes
+        function renderExpensePeopleList() {
+            expensePeopleList.innerHTML = '';
+            people.forEach(person => {
+                const div = document.createElement('div');
+                div.className = 'checkbox-container';
+                div.innerHTML = `
+                    <input type="checkbox" id="person-${person.id}" class="person-checkbox" data-id="${person.id}">
+                    <label for="person-${person.id}">${person.name}</label>
+                    <input type="number" class="custom-share" data-id="${person.id}" style="display: none;" min="0" step="0.01" placeholder="Amount">
+                `;
+                expensePeopleList.appendChild(div);
+            });
+            
+            // Add event listeners to checkboxes
+            const checkboxes = expensePeopleList.querySelectorAll('.person-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateCustomSplitVisibility);
+            });
+        }
+        
+        // Toggle split equally / custom split
+        splitEquallyCheckbox.addEventListener('change', () => {
+            customSplitContainer.style.display = splitEquallyCheckbox.checked ? 'none' : 'block';
+            
+            const customShares = document.querySelectorAll('.custom-share');
+            customShares.forEach(input => {
+                input.style.display = splitEquallyCheckbox.checked ? 'none' : 'block';
+            });
+        });
+        
+        // Update custom split inputs based on selected people
+        function updateCustomSplitVisibility() {
+            const customShares = document.querySelectorAll('.custom-share');
+            customShares.forEach(input => {
+                const personId = input.getAttribute('data-id');
+                const checkbox = document.querySelector(`.person-checkbox[data-id="${personId}"]`);
+                
+                if (!splitEquallyCheckbox.checked && checkbox.checked) {
+                    input.style.display = 'block';
+                } else {
+                    input.style.display = 'none';
+                }
+            });
+        }
+        
+        // Add an expense
+        addExpenseBtn.addEventListener('click', () => {
+            const title = expenseTitleInput.value.trim();
+            const description = expenseDescInput.value.trim();
+            const amountStr = expenseAmountInput.value.trim();
+            const payer = payerSelect.value;
+            
+            if (!title || !amountStr || !payer) {
+                alert('Please fill in the title, amount, and select who paid.');
+                return;
+            }
+            
+            const amount = parseFloat(amountStr);
+            if (isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid amount.');
+                return;
+            }
+            
+            // Get selected people
+            const selectedPeople = [];
+            const checkboxes = expensePeopleList.querySelectorAll('.person-checkbox:checked');
+            checkboxes.forEach(checkbox => {
+                selectedPeople.push(checkbox.getAttribute('data-id'));
+            });
+            
+            if (selectedPeople.length === 0) {
+                alert('Please select at least one person to split the expense with.');
+                return;
+            }
+            
+            // Calculate shares
+            let shares = [];
+            if (splitEquallyCheckbox.checked) {
+                // Split equally
+                const shareAmount = amount / selectedPeople.length;
+                shares = selectedPeople.map(personId => ({
+                    personId,
+                    amount: shareAmount
+                }));
+            } else {
+                // Custom split
+                shares = selectedPeople.map(personId => {
+                    const customShareInput = document.querySelector(`.custom-share[data-id="${personId}"]`);
+                    let shareAmount = parseFloat(customShareInput.value);
+                    
+                    if (isNaN(shareAmount) || shareAmount < 0) {
+                        shareAmount = 0;
+                    }
+                    
+                    return {
+                        personId,
+                        amount: shareAmount
+                    };
+                });
+                
+                // Validate total shares
+                const totalShares = shares.reduce((sum, share) => sum + share.amount, 0);
+                if (Math.abs(totalShares - amount) > 0.01) {
+                    alert(`The sum of shares (${totalShares.toFixed(2)}) does not equal the total expense (${amount.toFixed(2)}). Please adjust the amounts.`);
+                    return;
+                }
+            }
+            
+            // Create expense object
+            const expense = {
+                id: Date.now().toString(),
+                title,
+                description,
+                amount,
+                payer,
+                date: new Date().toISOString(),
+                shares
+            };
+            
+            expenses.push(expense);
+            saveExpenses();
+            renderExpenseList();
+            updateBalances();
+            
+            // Clear form
+            expenseTitleInput.value = '';
+            expenseDescInput.value = '';
+            expenseAmountInput.value = '';
+            payerSelect.value = '';
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            const customShares = document.querySelectorAll('.custom-share');
+            customShares.forEach(input => {
+                input.value = '';
+                input.style.display = 'none';
+            });
+            
+            splitEquallyCheckbox.checked = true;
+            customSplitContainer.style.display = 'none';
+        });
+        
+        // Render expense list
+        function renderExpenseList() {
+            expenseList.innerHTML = '';
+            
+            if (expenses.length === 0) {
+                expenseList.innerHTML = '<p>No expenses added yet.</p>';
+                return;
+            }
+            
+            // Sort expenses by date, newest first
+            const sortedExpenses = [...expenses].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            sortedExpenses.forEach(expense => {
+                const expenseElement = document.createElement('div');
+                expenseElement.className = 'expense-item';
+                
+                // Find payer name
+                const payer = people.find(p => p.id === expense.payer);
+                const payerName = payer ? payer.name : 'Unknown';
+                
+                // Format date
+                const date = new Date(expense.date);
+                const formattedDate = `${date.toLocaleDateString()} ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+                
+                // Create shares display
+                const sharesHtml = expense.shares.map(share => {
+                    const person = people.find(p => p.id === share.personId);
+                    const personName = person ? person.name : 'Unknown';
+                    return `<div class="expense-share">${personName}: $${share.amount.toFixed(2)}</div>`;
+                }).join('');
+                
+                expenseElement.innerHTML = `
+                    <div class="expense-header">
+                        <h3 class="expense-title">${expense.title}</h3>
+                        <span class="expense-amount">$${expense.amount.toFixed(2)}</span>
+                    </div>
+                    <div class="expense-desc">${expense.description || 'No description'}</div>
+                    <p><strong>Paid by:</strong> ${payerName} on ${formattedDate}</p>
+                    <div class="expense-shares">
+                        <strong>Shares:</strong>
+                        ${sharesHtml}
+                    </div>
+                    <div class="action-buttons">
+                        <button class="delete-btn" data-id="${expense.id}">Delete</button>
+                    </div>
+                `;
+                
+                expenseList.appendChild(expenseElement);
+            });
+            
+            // Add event listeners to delete buttons
+            const deleteButtons = expenseList.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const expenseId = e.target.getAttribute('data-id');
+                    deleteExpense(expenseId);
+                });
+            });
+        }
+        
+        // Delete an expense
+        function deleteExpense(expenseId) {
+            if (confirm('Are you sure you want to delete this expense?')) {
+                expenses = expenses.filter(expense => expense.id !== expenseId);
+                saveExpenses();
+                renderExpenseList();
+                updateBalances();
+            }
+        }
+        
+        // Calculate and update balances
+        function updateBalances() {
+            // Initialize net balances for each person
+            const balances = {};
+            people.forEach(person => {
+                balances[person.id] = 0;
+            });
+            
+            // Calculate net amount for each person
+            expenses.forEach(expense => {
+                // Add the full amount to the payer
+                balances[expense.payer] += expense.amount;
+                
+                // Subtract each person's share
+                expense.shares.forEach(share => {
+                    balances[share.personId] -= share.amount;
+                });
+            });
+            
+            // Calculate who owes whom
+            const transactions = calculateOptimalTransactions(balances);
+            
+            // Display balances
+            renderBalances(transactions);
+            
+            // Update total expenses
+            const totalExpenses = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+            totalExpensesSpan.textContent = totalExpenses.toFixed(2);
+        }
+        
+        // Calculate optimal transactions to settle debts
+        function calculateOptimalTransactions(balances) {
+            const transactions = [];
+            
+            // Create arrays of creditors and debtors
+            const creditors = [];
+            const debtors = [];
+            
+            for (const personId in balances) {
+                const amount = balances[personId];
+                if (Math.abs(amount) < 0.01) continue; // Skip if the balance is effectively zero
+                
+                if (amount > 0) {
+                    creditors.push({ personId, amount });
+                } else {
+                    debtors.push({ personId, amount: -amount }); // Convert to positive for easier handling
+                }
+            }
+            
+            // Sort creditors and debtors by amount (descending)
+            creditors.sort((a, b) => b.amount - a.amount);
+            debtors.sort((a, b) => b.amount - a.amount);
+            
+            // Match debtors to creditors
+            let i = 0, j = 0;
+            while (i < debtors.length && j < creditors.length) {
+                const debtor = debtors[i];
+                const creditor = creditors[j];
+                
+                // Calculate transfer amount (minimum of what's owed and what's due)
+                const amount = Math.min(debtor.amount, creditor.amount);
+                
+                if (amount > 0.01) { // Only add transactions with meaningful amounts
+                    transactions.push({
+                        from: debtor.personId,
+                        to: creditor.personId,
+                        amount
+                    });
+                }
+                
+                // Update remaining amounts
+                debtor.amount -= amount;
+                creditor.amount -= amount;
+                
+                // Move to next debtor or creditor if current one is settled
+                if (debtor.amount < 0.01) i++;
+                if (creditor.amount < 0.01) j++;
+            }
+            
+            return transactions;
+        }
+        
+        // Render balance list
+        function renderBalances(transactions) {
+            balancesList.innerHTML = '';
+            
+            if (transactions.length === 0) {
+                balancesList.innerHTML = '<p>All settled up! No payments needed.</p>';
+                return;
+            }
+            
+            transactions.forEach(transaction => {
+                const fromPerson = people.find(p => p.id === transaction.from);
+                const toPerson = people.find(p => p.id === transaction.to);
+                
+                if (fromPerson && toPerson) {
+                    const div = document.createElement('div');
+                    div.className = 'balance-item';
+                    div.innerHTML = `
+                        <div>${fromPerson.name} owes ${toPerson.name}</div>
+                        <div class="balance-negative">$${transaction.amount.toFixed(2)}</div>
+                    `;
+                    balancesList.appendChild(div);
+                }
+            });
+        }
+        
+        // Save people to localStorage
+        function savePeople() {
+            localStorage.setItem('people', JSON.stringify(people));
+        }
+        
+        // Save expenses to localStorage
+        function saveExpenses() {
+            localStorage.setItem('expenses', JSON.stringify(expenses));
+        }
+        
+        // Initialize the app
+        init();
     </script>
-
-    <script phx-track-static src="https://assets.kittysplit.com/assets/js/vendor-d3cf8de1f141bfb8808c66e0e45aab2e.js?vsn=d">
-    </script>
-
-    <script phx-track-static src="https://assets.kittysplit.com/assets/js/app-dcba4157e8b391839089a2d01c0dbbdd.js?vsn=d" onload="KittysplitApp.run({
-      translations: {
-saving: &#39;Saving...&#39;,
-commaAnd: &#39;and&#39;,
-partyNoOne: &#39;no one&#39;,
-saving: &#39;Saving...&#39;,
-commaAnd: &#39;and&#39;,
-partyNoOne: &#39;no one&#39;,
-decimalMark: &#39;.&#39;,
-amountPlaceholder: &#39;Amount in %{currency}&#39;,
-cookieHintText: &#39;By using Kittysplit, I acknowledge the &lt;a class=\&quot;legal-link\&quot; href=\&quot;/en/privacy-policy\&quot;&gt;privacy policy&lt;/a&gt;&#39;,
-cookieHintAccept: &#39;I confirm&#39;,
-cookiesRequired: &#39;Kittysplit requires cookies to be enabled to function. Please enable cookies to continue, thanks!&#39;,
-dateformat: &#39;%m/%d/%Y&#39;
-}
-,
-
-      splitGroup: &#39;7_0&#39;,
-      partiesUpgradeLimit: 10,
-    })">
-    </script>
-
-
-      <script async src="https://www.google.com/recaptcha/api.js?render=6Lf1DcgpAAAAAEh6l_ijSg8AegFie0nGFwafjAiJ">
-      </script>
-
-    <script type="text/javascript">
-      var fby = fby || [];
-      (function () {
-          var f = document.createElement('script'); f.type = 'text/javascript'; f.async = true;
-          f.src = '//cdn.feedbackify.com/f.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(f, s);
-      })();
-    </script>
-  </body>
+</body>
 </html>

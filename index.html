@@ -1,22 +1,257 @@
-<!DOCTYPE html>
+// Generate and download report
+        generateReportBtn.addEventListener('click', () => {
+            const format = exportFormatSelect.value;
+            generateReport(format);
+        });
+        
+        // Generate report in selected format
+        function generateReport(format) {
+            // Get current timestamp for filename
+            const timestamp = new Date().toISOString().replace(/:/g, '-').replace(/\..+/, '');
+            let filename = `expense-report-${timestamp}`;
+            let content = '';
+            let mimeType = '';
+            
+            // Calculate updated balances for the report
+            const balances = {};
+            people.forEach(person => {
+                balances[person.id] = 0;
+            });
+            
+            expenses.forEach(expense => {
+                balances[expense.payer] += expense.amount;
+                expense.shares.forEach(share => {
+                    balances[share.personId] -= share.amount;
+                });
+            });
+            
+            const transactions = calculateOptimalTransactions(balances);
+            
+            if (format === 'txt') {
+                // Text format
+                filename += '.txt';
+                mimeType = 'text/plain';
+                
+                content = 'EXPENSE REPORT\n';
+                content += '==============\n\n';
+                
+                // Add date
+                content += `Generated: ${new Date().toLocaleString()}\n\n`;
+                
+                // Add expense stats
+                content += 'EXPENSE SUMMARY\n';
+                content += '--------------\n';
+                content += `Total Expenses: ${expenses.reduce((sum, expense) => sum + expense.amount, 0).toFixed(2)}\n`;
+                content += `Number of Expenses: ${expenses.length}\n`;
+                content += `Average Expense: ${expenses.length > 0 ? (expenses.reduce((sum, expense) => sum + expense.amount, 0) / expenses.length).toFixed(2) : '0.00'}\n\n`;
+                
+                // Add people
+                content += 'PEOPLE\n';
+                content += '------\n';
+                people.forEach((person, index) => {
+                    content += `${index + 1}. ${person.name}\n`;
+                });
+                content += '\n';
+                
+                // Add expenses
+                content += 'EXPENSE DETAILS\n';
+                content += '--------------\n';
+                expenses.forEach((expense, index) => {
+                    const payer = people.find(p => p.id === expense.payer);
+                    content += `Expense ${index + 1}: ${expense.title}\n`;
+                    content += `Amount: ${expense.amount.toFixed(2)}\n`;
+                    content += `Paid by: ${payer ? payer.name : 'Unknown'}\n`;
+                    if (expense.description) {
+                        content += `Description: ${expense.description}\n`;
+                    }
+                    content += 'Shares:\n';
+                    expense.shares.forEach(share => {
+                        const person = people.find(p => p.id === share.personId);
+                        content += `  - ${person ? person.name : 'Unknown'}: ${share.amount.toFixed(2)}\n`;
+                    });
+                    content += '\n';
+                });
+                
+                // Add balances
+                content += 'SETTLEMENT SUMMARY\n';
+                content += '-----------------\n';
+                if (transactions.length === 0) {
+                    content += 'All settled up! No payments needed.\n';
+                } else {
+                    transactions.forEach(transaction => {
+                        const fromPerson = people.find(p => p.id === transaction.from);
+                        const toPerson = people.find(p => p.id === transaction.to);
+                        if (fromPerson && toPerson) {
+                            content += `${fromPerson.name} owes ${toPerson.name}: ${transaction.amount.toFixed(2)}\n`;
+                        }
+                    });
+                }
+                
+            } else if (format === 'csv') {
+                // CSV format
+                filename += '.csv';
+                mimeType = 'text/csv';
+                
+                // People section
+                content += 'PEOPLE\n';
+                content += 'ID,Name\n';
+                people.forEach(person => {
+                    content += `${person.id},${person.name}\n`;
+                });
+                content += '\n';
+                
+                // Expenses section
+                content += 'EXPENSES\n';
+                content += 'ID,Title,Description,Amount,Payer,Date\n';
+                expenses.forEach(expense => {
+                    const safeDescription = expense.description ? `"${expense.description.replace(/"/g, '""')}"` : '';
+                    content += `${expense.id},"${expense.title}",${safeDescription},${expense.amount},${expense.payer},${expense.date}\n`;
+                });
+                content += '\n';
+                
+                // Shares section
+                content += 'SHARES\n';
+                content += 'ExpenseID,PersonID,Amount\n';
+                expenses.forEach(expense => {
+                    expense.shares.forEach(share => {
+                        content += `${expense.id},${share.personId},${share.amount}\n`;
+                    });
+                });
+                content += '\n';
+                
+                // Settlement section
+                content += 'SETTLEMENT\n';
+                content += 'FromPerson,ToPerson,Amount\n';
+                transactions.forEach(transaction => {
+                    content += `${transaction.from},${transaction.to},${transaction.amount}\n`;
+                });
+                
+            } else if (format === 'json') {
+                // JSON format
+                filename += '.json';
+                mimeType = 'application/json';
+                
+                const reportData = {
+                    generated: new Date().toISOString(),
+                    stats: {
+                        totalExpenses: expenses.reduce((sum, expense) => sum + expense.amount, 0),
+                        expenseCount: expenses.length,
+                        averageExpense: expenses.length > 0 ? expenses.reduce((sum, expense) => sum + expense.amount, 0) / expenses.length : 0
+                    },
+                    people: people,
+                    expenses: expenses,
+                    settlement: transactions
+                };
+                
+                content = JSON.stringify(reportData, null, 2);
+            }
+            
+            // Create and trigger download
+            const blob = new Blob([content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Calculator</title>
     <style>
+        :root {
+            /* Light mode (default) */
+            --bg-color: #f5f5f5;
+            --container-bg: #ffffff;
+            --text-color: #333333;
+            --heading-color: #2c3e50;
+            --button-color: #3498db;
+            --button-hover: #2980b9;
+            --border-color: #dddddd;
+            --person-badge-bg: #e8f4fd;
+            --person-badge-border: #cce5ff;
+            --expense-header-border: #eaeaea;
+            --table-header-bg: #f2f2f2;
+            --positive-color: #2ecc71;
+            --negative-color: #e74c3c;
+            --edit-btn-color: #f39c12;
+            --delete-btn-color: #e74c3c;
+            --summary-bg: #eafaf1;
+            --summary-border: #2ecc71;
+            --expense-share-bg: #f0f0f0;
+            --active-tab-bg: #ffffff;
+            --tab-border: #dddddd;
+            --expense-amount: #2ecc71;
+            --expense-desc: #7f8c8d;
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --container-bg: #2c2c2c;
+            --text-color: #e0e0e0;
+            --heading-color: #81a1c1;
+            --button-color: #5e81ac;
+            --button-hover: #81a1c1;
+            --border-color: #4c4c4c;
+            --person-badge-bg: #3b4252;
+            --person-badge-border: #434c5e;
+            --expense-header-border: #3b3b3b;
+            --table-header-bg: #3b3b3b;
+            --positive-color: #a3be8c;
+            --negative-color: #bf616a;
+            --edit-btn-color: #d08770;
+            --delete-btn-color: #bf616a;
+            --summary-bg: #3b4252;
+            --summary-border: #a3be8c;
+            --expense-share-bg: #3b3b3b;
+            --active-tab-bg: #2c2c2c;
+            --tab-border: #4c4c4c;
+            --expense-amount: #a3be8c;
+            --expense-desc: #9e9e9e;
+        }
+        
+        [data-theme="blue"] {
+            --bg-color: #e8f1f5;
+            --container-bg: #ffffff;
+            --text-color: #2c3e50;
+            --heading-color: #1e6091;
+            --button-color: #3a7ca5;
+            --button-hover: #1e6091;
+            --border-color: #d6e6f2;
+            --person-badge-bg: #d6e6f2;
+            --person-badge-border: #b9d7ea;
+            --expense-header-border: #d6e6f2;
+            --table-header-bg: #d6e6f2;
+            --positive-color: #16a085;
+            --negative-color: #c0392b;
+            --edit-btn-color: #f39c12;
+            --delete-btn-color: #c0392b;
+            --summary-bg: #d6e6f2;
+            --summary-border: #3a7ca5;
+            --expense-share-bg: #e8f1f5;
+            --active-tab-bg: #ffffff;
+            --tab-border: #d6e6f2;
+            --expense-amount: #16a085;
+            --expense-desc: #7f8c8d;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
         }
         
         .container {
-            background-color: white;
+            background-color: var(--container-bg);
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -24,7 +259,7 @@
         }
         
         h1, h2, h3 {
-            color: #2c3e50;
+            color: var(--heading-color);
         }
         
         .flex-container {
@@ -41,13 +276,15 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
             border-radius: 4px;
             font-size: 16px;
+            background-color: var(--container-bg);
+            color: var(--text-color);
         }
         
         button {
-            background-color: #3498db;
+            background-color: var(--button-color);
             color: white;
             border: none;
             cursor: pointer;
@@ -56,7 +293,7 @@
         }
         
         button:hover {
-            background-color: #2980b9;
+            background-color: var(--button-hover);
         }
         
         table {
@@ -68,11 +305,11 @@
         th, td {
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid var(--border-color);
         }
         
         th {
-            background-color: #f2f2f2;
+            background-color: var(--table-header-bg);
             font-weight: bold;
         }
         
@@ -84,8 +321,8 @@
         }
         
         .person-badge {
-            background-color: #e8f4fd;
-            border: 1px solid #cce5ff;
+            background-color: var(--person-badge-bg);
+            border: 1px solid var(--person-badge-border);
             border-radius: 4px;
             padding: 5px 10px;
             display: inline-flex;
@@ -93,7 +330,7 @@
         }
         
         .remove-btn {
-            background-color: #ff6b6b;
+            background-color: var(--delete-btn-color);
             color: white;
             width: auto;
             padding: 4px 8px;
@@ -114,7 +351,7 @@
         }
         
         .expense-item {
-            background-color: white;
+            background-color: var(--container-bg);
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             padding: 15px;
@@ -126,6 +363,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
+            border-bottom: 1px solid var(--expense-header-border);
+            padding-bottom: 10px;
         }
         
         .expense-title {
@@ -136,12 +375,12 @@
         
         .expense-amount {
             font-weight: bold;
-            color: #2ecc71;
+            color: var(--expense-amount);
         }
         
         .expense-desc {
             margin-bottom: 10px;
-            color: #7f8c8d;
+            color: var(--expense-desc);
         }
         
         .expense-shares {
@@ -151,7 +390,7 @@
         }
         
         .expense-share {
-            background-color: #f0f0f0;
+            background-color: var(--expense-share-bg);
             padding: 5px 10px;
             border-radius: 4px;
             font-size: 14px;
@@ -160,48 +399,65 @@
         .action-buttons {
             display: flex;
             gap: 10px;
+            margin-top: 10px;
         }
         
         .edit-btn {
-            background-color: #f39c12;
+            background-color: var(--edit-btn-color);
         }
         
         .delete-btn {
-            background-color: #e74c3c;
+            background-color: var(--delete-btn-color);
         }
         
         /* Summary section */
         .summary-box {
-            background-color: #eafaf1;
-            border-left: 4px solid #2ecc71;
+            background-color: var(--summary-bg);
+            border-left: 4px solid var(--summary-border);
             padding: 15px;
             margin-bottom: 20px;
+            border-radius: 4px;
         }
         
         .summary-title {
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 18px;
         }
         
         .balance-item {
             display: flex;
             justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: center;
         }
         
         .balance-positive {
-            color: #2ecc71;
+            color: var(--positive-color);
+            font-weight: bold;
         }
         
         .balance-negative {
-            color: #e74c3c;
+            color: var(--negative-color);
+            font-weight: bold;
+        }
+        
+        .balance-arrow {
+            margin: 0 10px;
+            color: var(--text-color);
+        }
+        
+        .balance-amount-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .tabs {
             display: flex;
             margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid var(--tab-border);
         }
         
         .tab {
@@ -211,11 +467,12 @@
             border-bottom: none;
             margin-right: 5px;
             border-radius: 5px 5px 0 0;
+            transition: all 0.2s ease;
         }
         
         .tab.active {
-            background-color: white;
-            border-color: #ddd;
+            background-color: var(--active-tab-bg);
+            border-color: var(--tab-border);
             font-weight: bold;
         }
         
@@ -227,14 +484,99 @@
             display: block;
         }
         
+        /* Theme Selector */
+        .theme-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        
+        .theme-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-btn.active {
+            border-color: var(--button-color);
+            transform: scale(1.1);
+        }
+        
+        .theme-btn.light {
+            background-color: #f5f5f5;
+        }
+        
+        .theme-btn.dark {
+            background-color: #1a1a1a;
+        }
+        
+        .theme-btn.blue {
+            background-color: #e8f1f5;
+        }
+        
+        /* Summary visualization */
+        .balance-visualization {
+            padding: 20px 0;
+        }
+        
+        .balance-card {
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .person-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--button-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .balance-details {
+            flex: 1;
+        }
+        
+        .balance-amount {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
             .flex-container {
                 flex-direction: column;
+            }
+            
+            .theme-selector {
+                position: static;
+                margin-bottom: 20px;
+                justify-content: flex-end;
             }
         }
     </style>
 </head>
 <body>
+    <div class="theme-selector">
+        <div class="theme-btn light active" data-theme="light" title="Light Mode"></div>
+        <div class="theme-btn dark" data-theme="dark" title="Dark Mode"></div>
+        <div class="theme-btn blue" data-theme="blue" title="Blue Light Mode"></div>
+    </div>
+
     <h1>Expense Calculator</h1>
     
     <div class="tabs">
@@ -306,13 +648,53 @@
             <h2>Balance Summary</h2>
             <div class="summary-box">
                 <div class="summary-title">Who owes who</div>
+                <div id="balances-visualization" class="balance-visualization">
+                    <!-- Visual balance representation will be added here -->
+                </div>
                 <div id="balances-list">
                     <!-- Balances will be added here dynamically -->
                 </div>
             </div>
             
-            <div>
-                <h3>Total Expenses: $<span id="total-expenses">0.00</span></h3>
+            <div class="container">
+                <h3>Expense Stats</h3>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <div class="summary-box">
+                            <div class="summary-title">Total Expenses</div>
+                            <div class="balance-amount balance-positive">$<span id="total-expenses">0.00</span></div>
+                        </div>
+                    </div>
+                    <div class="flex-item">
+                        <div class="summary-box">
+                            <div class="summary-title">Average Expense</div>
+                            <div class="balance-amount">$<span id="average-expense">0.00</span></div>
+                        </div>
+                    </div>
+                    <div class="flex-item">
+                        <div class="summary-box">
+                            <div class="summary-title">Number of Expenses</div>
+                            <div class="balance-amount" id="expense-count">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <h3>Export Data</h3>
+                <p>Generate a report file with all expenses and balance calculations.</p>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <select id="export-format">
+                            <option value="txt">Text File (.txt)</option>
+                            <option value="csv">CSV File (.csv)</option>
+                            <option value="json">JSON File (.json)</option>
+                        </select>
+                    </div>
+                    <div class="flex-item">
+                        <button id="generate-report-btn">Generate Report</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -337,6 +719,8 @@
         const expenseList = document.getElementById('expense-list');
         const balancesList = document.getElementById('balances-list');
         const totalExpensesSpan = document.getElementById('total-expenses');
+        const exportFormatSelect = document.getElementById('export-format');
+        const generateReportBtn = document.getElementById('generate-report-btn');
         
         // Tab functionality
         const tabs = document.querySelectorAll('.tab');
@@ -731,12 +1115,15 @@
             return transactions;
         }
         
-        // Render balance list
+        // Render balance list with improved visualization
         function renderBalances(transactions) {
             balancesList.innerHTML = '';
+            const balancesVisualization = document.getElementById('balances-visualization');
+            balancesVisualization.innerHTML = '';
             
             if (transactions.length === 0) {
                 balancesList.innerHTML = '<p>All settled up! No payments needed.</p>';
+                balancesVisualization.innerHTML = '<p>Everyone is square! 👍</p>';
                 return;
             }
             
@@ -745,13 +1132,40 @@
                 const toPerson = people.find(p => p.id === transaction.to);
                 
                 if (fromPerson && toPerson) {
+                    // Create simple list item
                     const div = document.createElement('div');
                     div.className = 'balance-item';
                     div.innerHTML = `
-                        <div>${fromPerson.name} owes ${toPerson.name}</div>
-                        <div class="balance-negative">$${transaction.amount.toFixed(2)}</div>
+                        <div>
+                            <strong>${fromPerson.name}</strong>
+                            <span class="balance-arrow">→</span>
+                            <strong>${toPerson.name}</strong>
+                        </div>
+                        <div class="balance-amount-container">
+                            <div class="balance-negative">${transaction.amount.toFixed(2)}</div>
+                        </div>
                     `;
                     balancesList.appendChild(div);
+                    
+                    // Create visual card
+                    const card = document.createElement('div');
+                    card.className = 'balance-card';
+                    
+                    // Get initials for avatars
+                    const fromInitial = fromPerson.name.charAt(0).toUpperCase();
+                    const toInitial = toPerson.name.charAt(0).toUpperCase();
+                    
+                    card.innerHTML = `
+                        <div class="person-avatar">${fromInitial}</div>
+                        <div class="balance-details">
+                            <div><strong>${fromPerson.name}</strong> owes <strong>${toPerson.name}</strong></div>
+                            <div class="balance-negative balance-amount">${transaction.amount.toFixed(2)}</div>
+                        </div>
+                        <div class="balance-arrow">→</div>
+                        <div class="person-avatar">${toInitial}</div>
+                    `;
+                    
+                    balancesVisualization.appendChild(card);
                 }
             });
         }
@@ -765,6 +1179,37 @@
         function saveExpenses() {
             localStorage.setItem('expenses', JSON.stringify(expenses));
         }
+        
+        // Theme switcher functionality
+        const themeButtons = document.querySelectorAll('.theme-btn');
+        
+        // Set theme from localStorage if available
+        const savedTheme = localStorage.getItem('expense-calculator-theme');
+        if (savedTheme) {
+            document.body.setAttribute('data-theme', savedTheme);
+            themeButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-theme') === savedTheme) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+        
+        themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const theme = button.getAttribute('data-theme');
+                
+                // Update active button
+                themeButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Set theme
+                document.body.setAttribute('data-theme', theme);
+                
+                // Save to localStorage
+                localStorage.setItem('expense-calculator-theme', theme);
+            });
+        });
         
         // Initialize the app
         init();
